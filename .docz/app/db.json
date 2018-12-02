@@ -1,0 +1,58 @@
+{
+  "config": {
+    "title": "Commutox",
+    "description": "A ReactJS messenger",
+    "themeConfig": {
+      "mode": "light",
+      "logo": {
+        "src": "https://i.postimg.cc/Z52qndhz/Logo.png",
+        "width": "100%"
+      },
+      "colors": {
+        "primary": "#006cff"
+      },
+      "styles": {
+        "h1": {
+          "fontFamily": "inherit",
+          "letterSpacing": "0.01em"
+        }
+      }
+    },
+    "menu": [],
+    "ordering": "descending",
+    "version": "1.0.0",
+    "repository": null,
+    "native": false,
+    "codeSandbox": true,
+    "typescript": true
+  },
+  "entries": {
+    "src/app/shared/ui-kit/Button/Button.mdx": {
+      "name": "Button",
+      "id": "b8921a3a62a6ed71cf1725d4aae346a8",
+      "filepath": "src/app/shared/ui-kit/Button/Button.mdx",
+      "link": null,
+      "slug": "src-app-shared-ui-kit-button-button",
+      "route": "/src-app-shared-ui-kit-button-button",
+      "order": 0,
+      "menu": null,
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "button",
+          "value": "Button"
+        },
+        {
+          "depth": 2,
+          "slug": "default",
+          "value": "Default"
+        },
+        {
+          "depth": 2,
+          "slug": "outlined",
+          "value": "Outlined"
+        }
+      ]
+    }
+  }
+}
