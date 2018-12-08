@@ -1,0 +1,7 @@
+# Files
+package-lock.json
+
+# Folders
+node_modules/
+.docz/
+dist/

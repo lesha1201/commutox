@@ -1,1 +1,1 @@
-export interface RootState {}
+export interface IRootState {}

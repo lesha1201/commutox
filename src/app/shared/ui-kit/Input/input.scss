@@ -1,0 +1,73 @@
+@import 'src/app/shared/ui-kit/sass/variables';
+
+$padding-top: 0.66em;
+$padding-left: 0.83em;
+
+.inputWrapper {
+  display: flex;
+  width: 100%;
+
+  & > .addon,
+  & > .input {
+    border: 1px solid $color-gray-1;
+    border-radius: 0;
+  }
+
+  & > *:first-child {
+    border-top-left-radius: 0.33em;
+    border-bottom-left-radius: 0.33em;
+  }
+
+  & > .addon:first-child {
+    border-right-color: transparent;
+  }
+
+  & > *:last-child {
+    border-top-right-radius: 0.33em;
+    border-bottom-right-radius: 0.33em;
+  }
+
+  & > .addon:last-child {
+    border-left-color: transparent;
+  }
+}
+
+.input {
+  outline: none;
+  border: 1px solid $color-gray-1;
+  font-size: 1em;
+  color: inherit;
+  border-radius: 0.33em;
+  padding: $padding-top $padding-left;
+  transition: all 0.2s;
+  box-sizing: border-box;
+
+  &:focus {
+    border: 1px solid $color-primary;
+    color: $color-primary;
+  }
+
+  &.small {
+    width: 130px;
+  }
+
+  &.medium {
+    width: 200px;
+  }
+
+  &.large {
+    width: 500px;
+  }
+
+  &.full {
+    width: 100%;
+  }
+
+  &.withAddons {
+    flex: 1;
+  }
+}
+
+.addon {
+  padding: $padding-top $padding-left;
+}

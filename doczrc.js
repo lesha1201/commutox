@@ -44,8 +44,8 @@ export default {
       },
     },
   },
-  modifyBabelRc: (babelrc) => Object.assign({}, babelrc, { plugins: [] }),
-  modifyBundlerConfig: (config) => {
+  modifyBabelRc: babelrc => Object.assign({}, babelrc, { plugins: [] }),
+  modifyBundlerConfig: config => {
     return merge(config, webpackOverlay);
   },
 };

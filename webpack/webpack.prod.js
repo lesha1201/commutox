@@ -16,11 +16,14 @@ module.exports = merge(common, {
         use: [
           MiniCssExtractPlugin.loader,
           {
-            loader: 'css-loader',
+            loader: 'typings-for-css-modules-loader',
             options: {
+              namedExport: true,
+              camelCase: true,
               modules: true,
               importLoaders: 1,
-              localIdentName: '[hash:base64:5]',
+              sourceMap: true,
+              localIdentName: '[local]__[hash:base64:5]',
             },
           },
           'postcss-loader',

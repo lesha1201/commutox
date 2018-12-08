@@ -1,0 +1,55 @@
+---
+name: Input
+menu: UI Kit
+---
+
+import { Playground, PropsTable } from 'docz';
+import Margin from 'src/app/shared/docz-helpers/Margin';
+import Input from './index';
+
+# Input
+
+<PropsTable of={Input} />
+
+## Default
+
+<Playground>
+  <div style={{ fontSize: '14px' }}>
+    <Input placeholder="First name" />
+  </div>
+</Playground>
+
+## Width modifiers
+
+<Playground>
+  <div style={{ fontSize: '14px' }}>
+    <Margin type="bottom">
+      <Input placeholder="Small" width="small" />
+    </Margin>
+    <Margin type="bottom">
+      <Input placeholder="Medium" width="medium" />
+    </Margin>
+    <Margin type="bottom">
+      <Input placeholder="Large" width="large" />
+    </Margin>
+    <Margin type="top">
+      <Input placeholder="Full" width="full" />
+    </Margin>
+  </div>
+</Playground>
+
+## Before/after addons
+
+<Playground>
+  <div style={{ fontSize: '14px' }}>
+    <Margin type="bottom">
+      <Input placeholder="Addons" width="full" addonBefore="Before" />
+    </Margin>
+    <Margin type="bottom">
+      <Input placeholder="Addons" width="full" addonAfter="After" />
+    </Margin>
+    <Margin type="bottom">
+      <Input placeholder="Addons" width="full" addonBefore="Before" addonAfter="After" />
+    </Margin>
+  </div>
+</Playground>
