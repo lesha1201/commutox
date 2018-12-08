@@ -14,9 +14,7 @@ export interface IProps {
   onChange?(e: React.ChangeEvent<HTMLInputElement>): void;
 }
 
-export interface IState {}
-
-class Input extends React.Component<IProps, IState> {
+class Input extends React.Component<IProps, {}> {
   /* Static properties */
   public static defaultProps = {
     type: 'text',
