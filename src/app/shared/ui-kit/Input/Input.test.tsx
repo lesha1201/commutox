@@ -3,8 +3,8 @@ import { render } from 'react-testing-library';
 
 import Input from '.';
 
-describe('Input', () => {
-  it('renders', () => {
+describe('<Input />', () => {
+  it('should render', () => {
     const { container } = render(<Input />);
 
     expect(container.firstChild).toMatchSnapshot();

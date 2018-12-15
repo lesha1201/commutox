@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Input renders 1`] = `
+exports[`<Input /> should render 1`] = `
 <input
   class="input full"
   type="text"
 />
 `;
 
-exports[`Input with addons 1`] = `
+exports[`<Input /> with addons 1`] = `
 <div
   class="inputWrapper"
 >

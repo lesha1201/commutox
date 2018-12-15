@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Label /> should render 1`] = `
+<label
+  class="label"
+  for="id"
+  style="font-size: 20px;"
+/>
+`;

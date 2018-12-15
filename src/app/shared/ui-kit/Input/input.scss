@@ -33,14 +33,17 @@ $padding-left: 0.83em;
 }
 
 .input {
-  outline: none;
-  border: 1px solid $color-gray-1;
-  font-size: 1em;
-  color: inherit;
-  border-radius: 0.33em;
-  padding: $padding-top $padding-left;
-  transition: all 0.2s;
   box-sizing: border-box;
+  padding: $padding-top $padding-left;
+
+  border: 1px solid $color-gray-1;
+  border-radius: 0.33em;
+  color: inherit;
+  outline: none;
+  transition: all 0.2s;
+
+  font-size: 1em;
+  font-family: inherit;
 
   &:disabled {
     background: $color-light-gray-1;

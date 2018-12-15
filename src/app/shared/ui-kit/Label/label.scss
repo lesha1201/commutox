@@ -1,0 +1,10 @@
+@import 'src/app/shared/ui-kit/sass/variables';
+
+.label {
+  display: inline-block;
+
+  color: $color-primary-black;
+
+  font-size: 1.2em;
+  font-family: inherit;
+}
