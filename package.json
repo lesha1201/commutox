@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "test": "jest",
-    "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand",
+    "test:watch": "jest --watch",
+    "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --watch",
     "start": "webpack-dev-server --config webpack/webpack.dev.js --progress --color ",
     "build": "webpack --config webpack/webpack.prod.js -p --progress --colors",
     "docz:dev": "docz dev",

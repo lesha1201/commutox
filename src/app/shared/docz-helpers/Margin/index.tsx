@@ -7,7 +7,7 @@ export interface IProps {
   type: 'top' | 'bottom';
 }
 
-const Margin: React.SFC<IProps> = ({ type, children }) => {
+const Margin: React.FC<IProps> = ({ type, children }) => {
   const className = cx(style.margin, style[type]);
 
   return <div className={className}>{children}</div>;

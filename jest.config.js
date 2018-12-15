@@ -10,4 +10,5 @@ module.exports = {
     '\\.s?css$': 'identity-obj-proxy',
   },
   setupTestFrameworkScriptFile: require.resolve('./test/setupTests.js'),
+  collectCoverageFrom: ['**/src/**/*.{js,jsx,ts,tsx}'],
 };

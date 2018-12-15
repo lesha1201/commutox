@@ -3,22 +3,19 @@ import * as React from 'react';
 
 import * as style from './input.scss';
 
-export interface IProps {
+export interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
   width: 'small' | 'medium' | 'large' | 'full';
-  type?: string;
-  placeholder?: string;
-  value?: string;
   className?: string;
+  /** Adds an addon block before input */
   addonBefore?: string;
+  /** Adds an addon block after input */
   addonAfter?: string;
-  onChange?(e: React.ChangeEvent<HTMLInputElement>): void;
 }
 
 class Input extends React.Component<IProps, {}> {
-  /* Static properties */
+  /* 🗿 Static properties */
   public static defaultProps = {
     type: 'text',
-    placeholder: '',
     width: 'full',
   };
   /* End of Static properties */
@@ -37,20 +34,12 @@ class Input extends React.Component<IProps, {}> {
     }
   }
 
-  /* Private methods */
+  /* 🔒 Private methods */
   private getInput(hasAddons = false): React.ReactNode {
-    const { type, placeholder, width, value, onChange, className } = this.props;
+    const { width, className, addonBefore, addonAfter, ...domAttrs } = this.props;
     const cn = cx(style.input, hasAddons ? style.withAddons : style[width], className);
 
-    return (
-      <input
-        className={cn}
-        type={type}
-        placeholder={placeholder}
-        value={value}
-        onChange={onChange ? onChange : undefined}
-      />
-    );
+    return <input className={cn} {...domAttrs} />;
   }
 
   private getInputWithAddons(): React.ReactNode {

@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import * as style from './feed.scss';
 
-const Feed: React.SFC<{}> = () => {
+const FeedPage: React.FC<{}> = () => {
   return <div className={style.feed}>Feed</div>;
 };
 
-export default Feed;
+export default FeedPage;
