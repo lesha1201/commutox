@@ -1,0 +1,99 @@
+---
+name: Form
+menu: UI Kit
+---
+
+import { Playground } from 'docz';
+
+import Input from 'src/app/shared/ui-kit/Input';
+import Label from 'src/app/shared/ui-kit/Label';
+import Form from '.';
+
+# Form
+
+## Example 1
+
+<Playground style={{ fontSize: '14px' }}>
+  <Form onSubmit={e => { e.preventDefault(); alert('Submited!') }}>
+
+    <Form.Group>
+      <Form.Field>
+        <Label htmlFor="login">Login</Label>
+        <Input type="text" id="login" placeholder="Login" />
+      </Form.Field>
+    </Form.Group>
+
+    <Form.Group>
+      <Form.Field>
+        <Label htmlFor="password">Password</Label>
+        <Input type="password" id="password" placeholder="Password" />
+      </Form.Field>
+    </Form.Group>
+
+    <Form.Group justify="start">
+      <button type="submit">Login</button>
+      <button type="submit">Sign Up</button>
+    </Form.Group>
+
+  </Form>
+</Playground>
+
+## Example 2
+
+<Playground style={{ fontSize: '14px' }}>
+  <Form onSubmit={e => { e.preventDefault(); alert('Submited!') }}>
+
+    <Form.Group>
+      <Form.Field>
+        <Label htmlFor="login">Login</Label>
+        <Input type="text" id="login" placeholder="Login" />
+      </Form.Field>
+    </Form.Group>
+
+    <Form.Group>
+      <Form.Field>
+        <Label htmlFor="first-name">First name</Label>
+        <Input type="text" id="first-name" placeholder="First name" />
+      </Form.Field>
+
+      <Form.Field>
+        <Label htmlFor="last-name">Last name</Label>
+        <Input type="text" id="last-name" placeholder="Last name" />
+      </Form.Field>
+    </Form.Group>
+
+    <Form.Group>
+      <Form.Field>
+        <Label htmlFor="password">Password</Label>
+        <Input type="password" id="password" placeholder="Password" />
+      </Form.Field>
+
+      <Form.Field>
+        <Label htmlFor="conf-password">Confirm password</Label>
+        <Input type="password" id="conf-password" placeholder="Confirm password" />
+      </Form.Field>
+    </Form.Group>
+
+    <Form.Group>
+      <Form.Field>
+        <Label htmlFor="country">Country</Label>
+        <Input type="text" id="country" placeholder="Country" />
+      </Form.Field>
+
+      <Form.Field>
+        <Label htmlFor="city">City</Label>
+        <Input type="text" id="city" placeholder="City" />
+      </Form.Field>
+
+      <Form.Field>
+        <Label htmlFor="address">Address</Label>
+        <Input type="text" id="address" placeholder="Address" />
+      </Form.Field>
+    </Form.Group>
+
+    <Form.Group justify="start">
+      <button type="submit">Sign Up</button>
+    </Form.Group>
+
+  </Form>
+</Playground>
