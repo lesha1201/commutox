@@ -19,5 +19,5 @@
       "app/*": ["./app/*"]
     }
   },
-  "exclude": ["build", "node_modules/**/*", "node_modules", "node_modules/"]
+  "exclude": ["build", "node_modules"]
 }
