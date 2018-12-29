@@ -3,6 +3,7 @@ import * as React from 'react';
 
 import * as style from './input.scss';
 
+/* Typings */
 export interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
   width: 'small' | 'medium' | 'large' | 'full';
   className?: string;
@@ -10,21 +11,20 @@ export interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
   addonBefore?: string;
   /** Adds an addon block after input */
   addonAfter?: string;
+  children?: never;
 }
 
+/* Component */
 class Input extends React.Component<IProps, {}> {
-  /* 🗿 Static properties */
-  public static defaultProps = {
+  /* 🗿 Static properties ------------*/
+  static defaultProps = {
     type: 'text',
     width: 'full',
   };
-  /* End of Static properties */
+  /* End of Static properties -------*/
 
-  constructor(props: IProps) {
-    super(props);
-  }
-
-  public render() {
+  /* ♻️ Lifecycle -------------------*/
+  render() {
     const { addonBefore, addonAfter } = this.props;
 
     if (addonBefore || addonAfter) {
@@ -33,8 +33,9 @@ class Input extends React.Component<IProps, {}> {
       return this.getInput();
     }
   }
+  /* End of Lifecycle ---------------*/
 
-  /* 🔒 Private methods */
+  /* 🔒 Private methods -------------*/
   private getInput(hasAddons = false): React.ReactNode {
     const { width, className, addonBefore, addonAfter, ...domAttrs } = this.props;
     const cn = cx(style.input, hasAddons ? style.withAddons : style[width], className);
@@ -54,7 +55,7 @@ class Input extends React.Component<IProps, {}> {
       </div>
     );
   }
-  /* End of Private methods */
+  /* End of Private methods ---------*/
 }
 
 export default Input;

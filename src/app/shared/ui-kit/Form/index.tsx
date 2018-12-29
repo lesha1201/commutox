@@ -5,18 +5,17 @@
 import cx from 'classnames';
 import * as React from 'react';
 
-import FormField, { TFormField } from './compounds/FormField';
-import FormGroup, { TFormGroup } from './compounds/FormGroup';
+import FormField from './compounds/FormField';
+import FormGroup from './compounds/FormGroup';
 import * as style from './form.scss';
 
-export interface IProps extends React.FormHTMLAttributes<HTMLFormElement> {}
+/* Typings */
+export interface IProps extends React.FormHTMLAttributes<HTMLFormElement> {
+  children?: React.ReactNode;
+}
 
-export type TForm = {
-  Group: TFormGroup;
-  Field: TFormField;
-} & React.FC<IProps>;
-
-const Form: TForm = ({ className, children, ...formDomAttrs }) => {
+/* Component */
+function Form({ className, children, ...formDomAttrs }: IProps) {
   const cn = cx(style.form, className);
 
   return (
@@ -24,7 +23,7 @@ const Form: TForm = ({ className, children, ...formDomAttrs }) => {
       {children}
     </form>
   );
-};
+}
 
 Form.Group = FormGroup;
 Form.Field = FormField;

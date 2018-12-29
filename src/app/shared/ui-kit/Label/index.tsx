@@ -2,10 +2,14 @@ import * as React from 'react';
 
 import * as style from './label.scss';
 
-export interface IProps extends React.LabelHTMLAttributes<HTMLLabelElement> {}
+/* Typings */
+export interface IProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
+  children?: React.ReactNode;
+}
 
-const Label: React.FC<IProps> = props => {
+/* Component */
+function Label(props: IProps) {
   return <label className={style.label} {...props} />;
-};
+}
 
 export default Label;

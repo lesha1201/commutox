@@ -1,13 +1,170 @@
-.btn {
-  color: white;
-  border: none;
-  background-color: dodgerblue;
-  padding: 0.6em 1.3em;
-  cursor: pointer;
+/* * * * * * * * *
+ * Button        *
+ * * * * * * * * */
 
-  &.outlined {
-    background: transparent;
-    border: 1px solid dodgerblue;
-    color: dodgerblue;
+@import 'src/app/shared/ui-kit/sass/variables';
+
+@function get-disabled-color($color) {
+  @return adjust-color($color, $saturation: -25%, $alpha: -0.3);
+}
+
+.common {
+  display: inline-block;
+  padding: 0.6em 1.3em;
+
+  border-radius: 0.3em;
+  border: 1px solid transparent;
+  color: $color-primary-white;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  transition: all 0.2s;
+
+  font-size: 1em;
+
+  &:not(:disabled):hover {
+    transform: translateY(-0.05em);
+  }
+
+  &:not(:disabled):active {
+    transform: translateY(0.05em);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  /* Modifiers */
+  &.full {
+    width: 100%;
+  }
+
+  &.wide {
+    padding: 0.6em 2.1em;
+  }
+}
+
+/* Themes */
+.painted {
+  composes: common;
+
+  /* Modifiers */
+  &.primary {
+    background-color: $color-primary;
+    box-shadow: 0 0.2em 0.4em rgba($color-primary, 0.15);
+
+    &:not(:disabled):hover {
+      background-color: darken($color-primary, 1);
+      box-shadow: 0 0.3em 0.6em rgba($color-primary, 0.2);
+    }
+
+    &:not(:disabled):active {
+      box-shadow: 0 0.1em 0.2em rgba($color-primary, 0.2);
+    }
+
+    &:disabled {
+      background-color: get-disabled-color($color-primary);
+    }
+  }
+
+  &.success {
+    background-color: $color-success;
+    box-shadow: 0 0.2em 0.4em rgba($color-success, 0.15);
+
+    &:not(:disabled):hover {
+      background-color: darken($color-success, 1);
+      box-shadow: 0 0.3em 0.6em rgba($color-success, 0.2);
+    }
+
+    &:not(:disabled):active {
+      box-shadow: 0 0.1em 0.2em rgba($color-success, 0.2);
+    }
+
+    &:disabled {
+      background-color: get-disabled-color($color-success);
+    }
+  }
+
+  &.danger {
+    background-color: $color-danger;
+    box-shadow: 0 0.2em 0.4em rgba($color-danger, 0.15);
+
+    &:not(:disabled):hover {
+      background-color: darken($color-danger, 1);
+      box-shadow: 0 0.3em 0.6em rgba($color-danger, 0.2);
+    }
+
+    &:not(:disabled):active {
+      box-shadow: 0 0.1em 0.2em rgba($color-danger, 0.2);
+    }
+
+    &:disabled {
+      background-color: get-disabled-color($color-danger);
+    }
+  }
+}
+
+.outlined {
+  composes: common;
+
+  background-color: transparent;
+
+  &:not(:disabled):hover {
+    background-color: transparent;
+  }
+
+  /* Modifiers */
+  &.primary {
+    border-color: $color-primary;
+    color: $color-primary;
+
+    &:not(:disabled):hover {
+      box-shadow: 0 0.3em 0.6em rgba($color-primary, 0.1);
+    }
+
+    &:not(:disabled):active {
+      box-shadow: 0 0.1em 0.2em rgba($color-primary, 0.1);
+    }
+
+    &:disabled {
+      color: get-disabled-color($color-primary);
+      border-color: get-disabled-color($color-primary);
+    }
+  }
+
+  &.success {
+    border-color: $color-success;
+    color: $color-success;
+
+    &:not(:disabled):hover {
+      box-shadow: 0 0.3em 0.6em rgba($color-success, 0.1);
+    }
+
+    &:not(:disabled):active {
+      box-shadow: 0 0.1em 0.2em rgba($color-success, 0.1);
+    }
+
+    &:disabled {
+      color: get-disabled-color($color-success);
+      border-color: get-disabled-color($color-success);
+    }
+  }
+
+  &.danger {
+    border-color: $color-danger;
+    color: $color-danger;
+
+    &:not(:disabled):hover {
+      box-shadow: 0 0.3em 0.6em rgba($color-danger, 0.1);
+    }
+
+    &:not(:disabled):active {
+      box-shadow: 0 0.1em 0.2em rgba($color-danger, 0.1);
+    }
+
+    &:disabled {
+      color: get-disabled-color($color-danger);
+      border-color: get-disabled-color($color-danger);
+    }
   }
 }

@@ -3,14 +3,20 @@ import * as React from 'react';
 
 import * as style from '../../form.scss';
 
-export interface IProps extends React.HTMLAttributes<HTMLDivElement> {}
+/* Typings */
+export interface IProps extends React.HTMLAttributes<HTMLDivElement> {
+  children?: React.ReactNode;
+}
 
-export type TFormField = React.FC<IProps>;
-
-const FormField: TFormField = ({ children, className }) => {
+/* Component */
+function FormField({ children, className, ...domAttrs }: IProps) {
   const cn = cx(style.formField, className);
 
-  return <div className={cn}>{children}</div>;
-};
+  return (
+    <div className={cn} {...domAttrs}>
+      {children}
+    </div>
+  );
+}
 
 export default FormField;

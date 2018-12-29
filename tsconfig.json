@@ -11,6 +11,7 @@
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "strict": true,
+    "skipLibCheck": true,
     "outDir": "build",
     "lib": ["es6", "es7", "dom"],
     "baseUrl": "src",
@@ -18,5 +19,5 @@
       "app/*": ["./app/*"]
     }
   },
-  "exclude": ["build", "node_modules"]
+  "exclude": ["build", "node_modules/**/*", "node_modules", "node_modules/"]
 }

@@ -8,6 +8,13 @@ yarn-error.log*
 # Docz
 .docz/
 
+# VSCode
+.vscode/
+
+# Cypress
+cypress/videos
+cypress/screenshots
+
 # Awcache
 .awcache/
 

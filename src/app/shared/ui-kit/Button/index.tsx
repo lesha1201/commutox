@@ -3,14 +3,28 @@ import * as React from 'react';
 
 import * as style from './button.scss';
 
-export interface IProps {
-  type?: string;
+/* Typings */
+export interface IProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  theme: 'painted' | 'outlined';
+  mainColor: 'primary' | 'success' | 'danger';
+  size?: 'wide' | 'full';
+  children?: React.ReactNode;
 }
 
-const Button: React.FC<IProps> = ({ children, type }) => {
-  const className = cx(style.btn, type === 'outlined' && `${style.outlined}`);
+/* Component */
+function Button({ children, theme, size, mainColor, ...domAttrs }: IProps) {
+  const className = cx(style[theme], style[mainColor], size && style[size]);
 
-  return <button className={className}>{children}</button>;
+  return (
+    <button className={className} {...domAttrs}>
+      {children}
+    </button>
+  );
+}
+
+Button.defaultProps = {
+  theme: 'painted',
+  mainColor: 'primary',
 };
 
 export default Button;
