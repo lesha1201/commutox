@@ -2,15 +2,63 @@
 
 ## Route paths
 
-- `/(messages)` - Chat feed
-- `/settings` - Settings
-- `/messages/{id}` - Certain chat
+- `/sign` - Sign page (not-auth)
+- `/(messages)` - Chat feed (auth)
+- `/settings` - Settings (auth)
+- `/messages/{id}` - Certain chat (auth)
 
 ## CSS
 
 Some files that follows the rules:
 
 - src\app\shared\ui-kit\Button\button.scss
+
+### CSS Order
+
+https://pyx.space/post/keys-to-maintainable-css-order
+
+- Layout: The position of the element in space. Eg.: position, top, z-index.
+- Box: The element itself. Eg.: display, overflow, box-sizing.
+- Visual: Design of the element. Eg.: color, border, background.
+- Type: Typesetting of the element. Eg.: font-family, text-transform.
+
+```css
+.css-order {
+  /* Layout */
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+
+  /* Box */
+  box-sizing: border-box;
+  content: '';
+  display: block;
+  height: 100vh;
+  justify-content: space-between;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  width: 100%;
+
+  /* Visual */
+  background: red;
+  border: 1px solid red;
+  box-shadow: 0 0 0 black;
+  color: red;
+  cursor: pointer;
+
+  /* Type */
+  font-family: sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+}
+```
 
 ### CSS Modules
 
