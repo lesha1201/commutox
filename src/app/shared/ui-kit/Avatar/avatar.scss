@@ -1,0 +1,59 @@
+/* * * * * * * * *
+ * Avatar        *
+ * * * * * * * * */
+
+@import 'src/app/shared/ui-kit/sass/variables';
+
+.common {
+  position: relative;
+
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+}
+
+.circle {
+  composes: common;
+
+  border-radius: 100%;
+}
+
+.status {
+  &::after {
+    position: absolute;
+    right: 5%;
+    top: 5%;
+
+    box-sizing: border-box;
+    content: '';
+    height: 22%;
+    width: 22%;
+
+    border-radius: 100%;
+    border: 1.9px solid $color-primary-white;
+  }
+}
+
+.online {
+  composes: status;
+
+  &::after {
+    background-color: $color-green-1;
+  }
+}
+
+.offline {
+  composes: status;
+
+  &::after {
+    background-color: $color-gray-2;
+  }
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+
+  border-radius: 100%;
+  object-fit: cover;
+}
