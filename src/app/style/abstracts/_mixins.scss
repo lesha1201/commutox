@@ -1,0 +1,21 @@
+@mixin transformCenter($top: 50%, $left: 50%) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  transform: translate(-50%, -50%);
+}
+
+/*
+0 - 600px:    Normal styles
+600 - 900px:  Tablet portrait
+
+$breakpoint argument choices:
+- tab-port
+*/
+@mixin respond($breakpoint) {
+  @if $breakpoint == tab-port {
+    @media only screen and (min-width: 37.5em) {
+      @content;
+    }
+  }
+}

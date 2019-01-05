@@ -3,8 +3,19 @@ import { hot } from 'react-hot-loader';
 import { Route, Switch } from 'react-router-dom';
 
 import { routes } from 'app/routes';
-import './app.scss';
+import 'app/style/main.scss'; // Global styles
+import * as style from './app.scss';
 
-const routesComponents = routes.map(route => <Route key={route.path} {...route} />);
+const routesComponents = routes.map(route => (
+  <Route key={String(route.path)} {...route} />
+));
 
-export const App = hot(module)(() => <Switch>{routesComponents}</Switch>);
+function App() {
+  return (
+    <div className={style.app}>
+      <Switch>{routesComponents}</Switch>
+    </div>
+  );
+}
+
+export default hot(module)(App);

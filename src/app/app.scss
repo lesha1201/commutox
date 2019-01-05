@@ -1,8 +1,8 @@
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
+.app {
+  position: relative;
 
-h1 {
-  color: dodgerblue;
-  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  max-width: 768px;
+  margin: 0 auto;
+  height: 100vh;
 }
