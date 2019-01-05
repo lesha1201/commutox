@@ -1,6 +1,13 @@
 const merge = require('webpack-merge');
+const path = require('path');
+const paths = require('./webpack/paths');
 
 const webpackOverlay = {
+  resolve: {
+    alias: {
+      app: path.join(paths.SRC, 'app'),
+    },
+  },
   module: {
     rules: [
       {

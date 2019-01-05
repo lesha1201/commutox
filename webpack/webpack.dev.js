@@ -27,10 +27,12 @@ module.exports = merge(common, {
     rules: [
       {
         test: /\.tsx?$/,
+        include: path.resolve(paths.SRC),
         use: ['babel-loader', 'ts-loader'],
       },
       {
         test: /\.s?css$/,
+        include: path.resolve(paths.SRC),
         use: [
           'style-loader',
           {

@@ -9,10 +9,12 @@ module.exports = merge(common, {
     rules: [
       {
         test: /\.tsx?$/,
+        include: path.resolve(paths.SRC),
         use: ['ts-loader'],
       },
       {
         test: /\.s?css$/,
+        include: path.resolve(paths.SRC),
         use: [
           MiniCssExtractPlugin.loader,
           {
