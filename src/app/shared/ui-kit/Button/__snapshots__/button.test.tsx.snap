@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> colors with color "danger" 1`] = `
+<button
+  class="painted danger"
+>
+  button
+</button>
+`;
+
+exports[`<Button /> colors with color "primary" 1`] = `
+<button
+  class="painted primary"
+>
+  button
+</button>
+`;
+
+exports[`<Button /> colors with color "success" 1`] = `
+<button
+  class="painted success"
+>
+  button
+</button>
+`;
+
+exports[`<Button /> should render 1`] = `
+<button
+  class="painted primary"
+>
+  button
+</button>
+`;
+
+exports[`<Button /> sizes with size "full" 1`] = `
+<button
+  class="painted primary full"
+>
+  button
+</button>
+`;
+
+exports[`<Button /> sizes with size "wide" 1`] = `
+<button
+  class="painted primary wide"
+>
+  button
+</button>
+`;
+
+exports[`<Button /> themes with theme "outlined" 1`] = `
+<button
+  class="outlined primary"
+>
+  button
+</button>
+`;
+
+exports[`<Button /> themes with theme "painted" 1`] = `
+<button
+  class="painted primary"
+>
+  button
+</button>
+`;

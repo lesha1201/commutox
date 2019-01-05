@@ -12,11 +12,11 @@ export interface IProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 /* Component */
-function Button({ children, theme, size, mainColor, ...domAttrs }: IProps) {
-  const className = cx(style[theme], style[mainColor], size && style[size]);
+function Button({ children, theme, size, mainColor, className, ...domAttrs }: IProps) {
+  const cn = cx(className, style[theme], style[mainColor], size && style[size]);
 
   return (
-    <button className={className} {...domAttrs}>
+    <button className={cn} {...domAttrs}>
       {children}
     </button>
   );

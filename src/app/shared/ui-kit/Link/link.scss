@@ -1,0 +1,11 @@
+@import 'src/app/shared/ui-kit/sass/_variables.scss';
+
+.link {
+  text-decoration: none;
+  color: $color-primary;
+  transition: text-decoration 0.2s;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

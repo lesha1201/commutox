@@ -21,6 +21,7 @@
   transition: all 0.2s;
 
   font-size: 1em;
+  white-space: nowrap;
 
   &:not(:disabled):hover {
     transform: translateY(-0.05em);
