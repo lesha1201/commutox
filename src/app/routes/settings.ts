@@ -1,9 +1,10 @@
-import Settings from 'app/pages/settings';
+import SettingsPage from 'app/pages/settings';
+import { RouteProps } from 'react-router-dom';
 
-const settingsRoute = {
+const settingsRoute: RouteProps = {
   exact: true,
   path: '/settings',
-  component: Settings,
+  component: SettingsPage,
 };
 
 export { settingsRoute };

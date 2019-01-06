@@ -1,9 +1,10 @@
-import Feed from 'app/pages/feed';
+import FeedPage from 'app/pages/feed';
+import { RouteProps } from 'react-router-dom';
 
-const feedRoute = {
+const feedRoute: RouteProps = {
   exact: true,
   path: '/(messages)?',
-  component: Feed,
+  component: FeedPage,
 };
 
 export { feedRoute };

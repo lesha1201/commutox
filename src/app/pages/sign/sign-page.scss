@@ -1,0 +1,21 @@
+@import 'src/app/style/main';
+
+.sign-page {
+  padding: 20vh $padding-lr-1;
+  width: 100%;
+}
+
+.card {
+  margin: 0 auto;
+  max-width: 40rem;
+
+  border-radius: $border-rad;
+  box-shadow: $shadow-airy-tile;
+}
+
+.logo {
+  margin-bottom: 2rem;
+  margin: 0 auto;
+  min-width: 20rem;
+  width: 50%;
+}

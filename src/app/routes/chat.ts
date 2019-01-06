@@ -1,9 +1,10 @@
-import Chat from 'app/pages/chat';
+import ChatPage from 'app/pages/chat';
+import { RouteProps } from 'react-router-dom';
 
-const chatRoute = {
+const chatRoute: RouteProps = {
   exact: true,
   path: '/messages/:id',
-  component: Chat,
+  component: ChatPage,
 };
 
 export { chatRoute };

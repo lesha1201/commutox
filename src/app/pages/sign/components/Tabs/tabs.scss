@@ -1,0 +1,43 @@
+@import 'src/app/style/main';
+
+.tabs {
+  display: flex;
+  width: 100%;
+}
+
+.tab {
+  display: block;
+  flex-grow: 1;
+  padding: 2rem 1rem;
+
+  background-color: $color-primary;
+  color: $color-primary-white;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+
+  &:first-child {
+    border-top-left-radius: $border-rad;
+  }
+
+  &:last-child {
+    border-top-right-radius: $border-rad;
+  }
+
+  @include respond(tab-port) {
+    padding: 2.5rem 1.5rem;
+
+    font-size: 2rem;
+  }
+}
+
+.active-tab {
+  composes: tab;
+
+  background-color: $color-primary-white;
+  color: $color-primary-black;
+}
