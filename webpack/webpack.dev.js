@@ -8,13 +8,12 @@ module.exports = merge(common, {
   mode: 'development',
   devtool: 'cheap-module-eval-source-map',
   entry: [
-    'webpack-dev-server/client?http://0.0.0.0:3013',
+    'webpack-dev-server/client?http://localhost:3013',
     'webpack/hot/only-dev-server',
-    path.join(paths.SRC, 'main.tsx'),
+    common.entry,
   ],
   devServer: {
     contentBase: paths.SRC,
-    host: '0.0.0.0',
     hot: true,
     stats: 'minimal',
     port: 3013,
