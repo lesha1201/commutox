@@ -1,5 +1,8 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const merge = require('webpack-merge');
+const path = require('path');
+const paths = require('./paths');
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
@@ -37,5 +40,6 @@ module.exports = merge(common, {
     new MiniCssExtractPlugin({
       filename: '[contenthash].css',
     }),
+    new BundleAnalyzerPlugin(),
   ],
 });

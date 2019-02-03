@@ -11,6 +11,9 @@ Thoughts.md
 # Docz
 .docz/
 
+# Distribution folder
+dist/
+
 # VSCode
 .vscode/
 

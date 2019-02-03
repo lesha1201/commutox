@@ -1,11 +1,14 @@
 {
   "name": "commutox",
+  "sideEffects": [
+    "*.{scss,css}"
+  ],
   "version": "1.0.0",
   "description": "A ReactJS messenger",
   "private": true,
   "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watch",
+    "test": "jest --runInBand",
+    "test:watch": "jest --runInBand --watch",
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --watch",
     "start": "webpack-dev-server --config webpack/webpack.dev.js --progress --color",
     "build": "webpack --config webpack/webpack.prod.js -p --progress --colors",
@@ -38,6 +41,7 @@
     "@types/react-router-dom": "^4.3.1",
     "@types/webpack": "^4.4.20",
     "@types/webpack-env": "^1.13.6",
+    "@types/yup": "^0.26.7",
     "autoprefixer": "^9.3.1",
     "babel-core": "^7.0.0-bridge.0",
     "babel-loader": "^8.0.4",
@@ -73,6 +77,7 @@
     "typescript": "^3.2.2",
     "typings-for-css-modules-loader": "^1.7.0",
     "webpack": "^4.26.1",
+    "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10",
     "webpack-merge": "^4.1.4"
@@ -83,6 +88,7 @@
     "react-dom": "^16.7.0",
     "react-redux": "^5.1.1",
     "react-router-dom": "^4.3.1",
-    "redux": "^4.0.1"
+    "redux": "^4.0.1",
+    "yup": "^0.26.10"
   }
 }

@@ -8,7 +8,7 @@ module.exports = merge(common, {
   mode: 'development',
   devtool: 'cheap-module-eval-source-map',
   entry: [
-    'webpack-dev-server/client?http://localhost:3013',
+    'webpack-dev-server/client?http://0.0.0.0:3013',
     'webpack/hot/only-dev-server',
     common.entry,
   ],
@@ -16,6 +16,7 @@ module.exports = merge(common, {
     contentBase: paths.SRC,
     hot: true,
     stats: 'minimal',
+    host: '0.0.0.0',
     port: 3013,
     historyApiFallback: {
       disableDotRule: true,

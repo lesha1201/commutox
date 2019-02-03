@@ -46,7 +46,7 @@ module.exports = {
     runtimeChunk: true,
   },
   plugins: [
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(['dist'], { root: paths.ROOT }),
     new HtmlWebpackPlugin({
       template: 'src/assets/index.html',
       minify: {
