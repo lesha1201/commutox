@@ -108,7 +108,7 @@ Children should be always explicitly defined in an interface. Default type is `R
 
 You do not need to explicitly define children in an interface when using default `React.ReactNode` as the children but if a component doesn't suppose to have any children then you should explicitly write it: `children?: never`
 
-Class component should be divided in blocks: `🗿 Static properties`, `♻️ Lifecycle`, `🔒 Private methods` (WIP: decide about public methods)
+(Optional) Class component should be divided in blocks: `🗿 Static properties`, `♻️ Lifecycle`, `🔒 Private methods` (WIP: decide about public methods)
 
 Example:
 
@@ -126,6 +126,23 @@ class Component extends React.Component<IProps, IState> {
   private privateMethod() {}
   /* End of Private methods ---------*/
 }
+```
+
+#### Imports order
+
+Import should be alphabetized and grouped. First group is third-party libraries. Second is code from the app.
+
+Link to tslint rule: https://palantir.github.io/tslint/rules/ordered-imports/
+
+Example:
+
+```ts
+// Import libraries
+import Foo from 'foo';
+import Bar from 'bar';
+
+// Import source code
+import FooBar from 'app/foo-bar';
 ```
 
 ## Testing

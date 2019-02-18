@@ -1,5 +1,5 @@
 /**
- * It creates export the function configureStore that creates store
+ * It exports the function 'configureStore' that creates store
  */
 
 import { applyMiddleware, createStore, Store } from 'redux';

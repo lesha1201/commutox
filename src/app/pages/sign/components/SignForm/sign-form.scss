@@ -1,9 +1,8 @@
-@import 'src/app/style/main';
+@import 'src/app/style/abstracts/index';
 
 .sign-form {
-  padding-bottom: 4rem;
-  padding-top: 3rem;
   padding: 7.5%;
+  padding-bottom: 10%;
 
   font-size: $font-size-default;
 }

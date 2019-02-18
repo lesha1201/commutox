@@ -1,7 +1,7 @@
-@import 'src/app/style/main';
+@import 'src/app/style/abstracts/index';
 
 .sign-page {
-  padding: 20vh $padding-lr-1;
+  padding: 20vh 5%;
   width: 100%;
 }
 
@@ -14,8 +14,8 @@
 }
 
 .logo {
-  margin-bottom: 2rem;
   margin: 0 auto;
+  margin-bottom: 2rem;
   min-width: 20rem;
   width: 50%;
 }

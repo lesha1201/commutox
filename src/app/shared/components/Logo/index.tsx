@@ -4,35 +4,36 @@ interface IProps extends React.SVGAttributes<SVGElement> {}
 
 function Logo(props: IProps) {
   return (
-    <svg data-name="CommutoX" viewBox="0 0 374 79" width="100%" {...props}>
+    <svg data-name="CommutoX" viewBox="0 0 370.51 61.684" width="100%" {...props}>
       <text
-        transform="translate(0 61.79)"
-        fontSize="62.4"
+        x="-3.625"
+        y="61.075"
         fill="#131314"
         fontFamily="Open Sans"
+        fontSize="62.393"
         fontWeight={700}
         letterSpacing=".06em"
       >
         C
-        <tspan x="43.12" y={0} letterSpacing=".05em">
+        <tspan x="39.49" y="61.075" letterSpacing=".05em">
           o
         </tspan>
-        <tspan x="84.24" y={0}>
+        <tspan x="80.605" y="61.075">
           mm
         </tspan>
-        <tspan x="210.48" y={0}>
+        <tspan x="206.83" y="61.075">
           u
         </tspan>
-        <tspan x="253.6" y={0}>
+        <tspan x="249.946" y="61.075">
           t
         </tspan>
-        <tspan x="281.72" y={0} letterSpacing=".05em">
+        <tspan x="278.062" y="61.075" letterSpacing=".05em">
           o
         </tspan>
       </text>
       <path
         fill="#006cff"
-        d="M353.43 29.87L372.71 0h-10.89l-14.26 23.33L333.3 0H3.7v7.2h323.02l14.51 22.5-20.46 31.98h10.8l15.57-25.23 15.44 25.23h11.6l-20.75-31.81z"
+        d="M369.044 0h-10.89l-14.258 23.327L329.638 0H.074v7.2H323.06l14.508 22.497-20.458 31.976h10.8l15.567-25.227 15.439 25.227h11.598l-20.747-31.806z"
       />
     </svg>
   );

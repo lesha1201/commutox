@@ -8,11 +8,13 @@
  * @returns True if the target object contains all keys presented in the input object
  */
 function containsAllKeys(target: object, obj: object) {
-  if (Object.keys(obj).length === 0) {
+  const keys = Object.keys(obj);
+
+  if (keys.length === 0) {
     return false;
   }
 
-  for (const key in obj) {
+  for (const key of keys) {
     if (!target.hasOwnProperty(key)) {
       return false;
     }
