@@ -11,6 +11,8 @@ export interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
   addonBefore?: string;
   /** Adds an addon block after input */
   addonAfter?: string;
+  /** If it's set to true when input changes visually to show there is an error */
+  hasError?: boolean;
   children?: never;
 }
 
@@ -37,8 +39,20 @@ class Input extends React.Component<IProps, {}> {
 
   /* 🔒 Private methods -------------*/
   private getInput(hasAddons = false): React.ReactNode {
-    const { width, className, addonBefore, addonAfter, ...domAttrs } = this.props;
-    const cn = cx(style.input, hasAddons ? style.withAddons : style[width], className);
+    const {
+      width,
+      className,
+      addonBefore,
+      addonAfter,
+      hasError,
+      ...domAttrs
+    } = this.props;
+
+    const cn = cx(
+      hasError ? style.errorInput : style.input,
+      hasAddons ? style.withAddons : style[width],
+      className,
+    );
 
     return <input className={cn} {...domAttrs} />;
   }

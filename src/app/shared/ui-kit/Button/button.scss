@@ -23,7 +23,8 @@
   font-size: 1em;
   white-space: nowrap;
 
-  &:not(:disabled):hover {
+  &:not(:disabled):hover,
+  &:not(:disabled):focus {
     transform: translateY(-0.05em);
   }
 
@@ -54,7 +55,8 @@
     background-color: $color-primary;
     box-shadow: 0 0.2em 0.4em rgba($color-primary, 0.15);
 
-    &:not(:disabled):hover {
+    &:not(:disabled):hover,
+    &:not(:disabled):focus {
       background-color: darken($color-primary, 1);
       box-shadow: 0 0.3em 0.6em rgba($color-primary, 0.2);
     }
@@ -72,7 +74,8 @@
     background-color: $color-success;
     box-shadow: 0 0.2em 0.4em rgba($color-success, 0.15);
 
-    &:not(:disabled):hover {
+    &:not(:disabled):hover,
+    &:not(:disabled):focus {
       background-color: darken($color-success, 1);
       box-shadow: 0 0.3em 0.6em rgba($color-success, 0.2);
     }
@@ -90,7 +93,8 @@
     background-color: $color-danger;
     box-shadow: 0 0.2em 0.4em rgba($color-danger, 0.15);
 
-    &:not(:disabled):hover {
+    &:not(:disabled):hover,
+    &:not(:disabled):focus {
       background-color: darken($color-danger, 1);
       box-shadow: 0 0.3em 0.6em rgba($color-danger, 0.2);
     }
@@ -119,7 +123,8 @@
     border-color: $color-primary;
     color: $color-primary;
 
-    &:not(:disabled):hover {
+    &:not(:disabled):hover,
+    &:not(:disabled):focus {
       box-shadow: 0 0.3em 0.6em rgba($color-primary, 0.1);
     }
 
@@ -137,7 +142,8 @@
     border-color: $color-success;
     color: $color-success;
 
-    &:not(:disabled):hover {
+    &:not(:disabled):hover,
+    &:not(:disabled):focus {
       box-shadow: 0 0.3em 0.6em rgba($color-success, 0.1);
     }
 
@@ -155,7 +161,8 @@
     border-color: $color-danger;
     color: $color-danger;
 
-    &:not(:disabled):hover {
+    &:not(:disabled):hover,
+    &:not(:disabled):focus {
       box-shadow: 0 0.3em 0.6em rgba($color-danger, 0.1);
     }
 

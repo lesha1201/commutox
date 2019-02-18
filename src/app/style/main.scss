@@ -1,4 +1,9 @@
-@import 'abstracts/mixins';
-@import 'abstracts/variables';
+/*
+ * Sass-loader for some reason can't resolve _index.scss without explicitly write it
+ * (e.g. 'abstracts' instead of 'abstracts/index')
+ * Mb they will fix it in the next release
+ */
 
-@import 'base/base';
+@import 'abstracts/index';
+
+@import 'base/index';

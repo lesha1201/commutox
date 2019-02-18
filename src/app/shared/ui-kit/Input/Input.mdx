@@ -45,13 +45,13 @@ import Input from './index';
 <Playground>
   <div style={{ fontSize: '14px' }}>
     <Margin type="bottom">
-      <Input placeholder="Addons" width="full" addonBefore="Before" />
+      <Input placeholder="Addons" addonBefore="Before" />
     </Margin>
     <Margin type="bottom">
-      <Input placeholder="Addons" width="full" addonAfter="After" />
+      <Input placeholder="Addons" addonAfter="After" />
     </Margin>
     <Margin type="bottom">
-      <Input placeholder="Addons" width="full" addonBefore="Before" addonAfter="After" />
+      <Input placeholder="Addons" addonBefore="Before" addonAfter="After" />
     </Margin>
   </div>
 </Playground>
@@ -61,5 +61,13 @@ import Input from './index';
 <Playground>
   <div style={{ fontSize: '14px' }}>
     <Input placeholder="Disabled" disabled />
+  </div>
+</Playground>
+
+## Error
+
+<Playground>
+  <div style={{ fontSize: '14px' }}>
+    <Input placeholder="Error" hasError />
   </div>
 </Playground>

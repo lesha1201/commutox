@@ -80,6 +80,18 @@ $padding-left: 0.83em;
   }
 }
 
+.error-input {
+  composes: input;
+
+  border-color: $color-danger;
+  color: $color-danger;
+
+  &:focus {
+    border-color: $color-danger;
+    color: $color-danger;
+  }
+}
+
 .addon {
   padding: $padding-top $padding-left;
 }

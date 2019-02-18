@@ -6,7 +6,7 @@ import * as style from '../../form.scss';
 
 /* Typings */
 export interface IProps extends React.HTMLAttributes<HTMLDivElement> {
-  justify?: 'start';
+  justify?: 'start' | 'center';
   align?: 'start' | 'center';
   children?: React.ReactNode;
 }

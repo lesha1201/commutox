@@ -6,3 +6,4 @@ export const medium: string;
 export const large: string;
 export const full: string;
 export const withAddons: string;
+export const errorInput: string;
