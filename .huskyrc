@@ -1,5 +1,5 @@
 {
   "hooks": {
-    "pre-commit": "lint-staged && npm run tsc && npm t"
+    "pre-commit": "lint-staged && npm run typecheck && npm t"
   }
 }

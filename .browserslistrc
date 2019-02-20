@@ -1,4 +1,10 @@
 # Browsers that we support
 
->0.3%
+[production staging]
+> 0.3%
 not op_mini all
+
+[development]
+last 2 chrome versions
+last 2 firefox versions
+last 2 edge versions

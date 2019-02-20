@@ -1,3 +1,4 @@
+// This file is generated automatically
 export const common: string;
 export const circle: string;
 export const status: string;

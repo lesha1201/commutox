@@ -1,3 +1,4 @@
+// This file is generated automatically
 export const inputWrapper: string;
 export const addon: string;
 export const input: string;

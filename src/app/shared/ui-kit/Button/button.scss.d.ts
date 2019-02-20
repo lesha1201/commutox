@@ -1,3 +1,4 @@
+// This file is generated automatically
 export const common: string;
 export const full: string;
 export const wide: string;

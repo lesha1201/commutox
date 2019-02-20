@@ -1,3 +1,8 @@
+// Setting the right env
+process.env.BABEL_ENV = 'production';
+process.env.NODE_ENV = 'production';
+
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const merge = require('webpack-merge');
@@ -11,22 +16,23 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        include: path.resolve(paths.SRC),
-        use: ['ts-loader'],
-      },
-      {
         test: /\.s?css$/,
         include: path.resolve(paths.SRC),
         use: [
           MiniCssExtractPlugin.loader,
           {
-            loader: 'typings-for-css-modules-loader',
+            loader: 'dts-css-modules-loader',
             options: {
               namedExport: true,
-              camelCase: true,
+              banner: '// This file is generated automatically',
+            },
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              camelCase: 'only',
               modules: true,
-              importLoaders: 1,
+              importLoaders: 2,
               sourceMap: true,
             },
           },
@@ -37,6 +43,7 @@ module.exports = merge(common, {
     ],
   },
   plugins: [
+    new CleanWebpackPlugin(['dist'], { root: paths.ROOT }),
     new MiniCssExtractPlugin({
       filename: '[contenthash].css',
     }),

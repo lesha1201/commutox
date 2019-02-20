@@ -1,3 +1,7 @@
+// Setting the right env
+process.env.BABEL_ENV = 'development';
+process.env.NODE_ENV = 'development';
+
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const path = require('path');
@@ -26,22 +30,23 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        include: path.resolve(paths.SRC),
-        use: ['babel-loader', 'ts-loader'],
-      },
-      {
         test: /\.s?css$/,
         include: path.resolve(paths.SRC),
         use: [
-          'style-loader',
+          { loader: 'style-loader', options: { hmr: false } },
           {
-            loader: 'typings-for-css-modules-loader',
+            loader: 'dts-css-modules-loader',
             options: {
               namedExport: true,
-              camelCase: true,
+              banner: '// This file is generated automatically',
+            },
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              camelCase: 'only',
               modules: true,
-              importLoaders: 1,
+              importLoaders: 2,
               sourceMap: true,
               localIdentName: '[name]__[local]__[hash:base64:5]',
             },

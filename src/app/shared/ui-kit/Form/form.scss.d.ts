@@ -1,3 +1,4 @@
+// This file is generated automatically
 export const form: string;
 export const formGroup: string;
 export const start: string;

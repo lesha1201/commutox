@@ -1,1 +1,1 @@
-export {};
+// This file is generated automatically

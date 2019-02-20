@@ -3,7 +3,8 @@
   "rulesDirectory": ["tslint-plugin-prettier"],
   "rules": {
     "prettier": true,
-    "object-literal-sort-keys": [true, "match-declaration-order", "shorthand-first"],
-    "member-access": [true, "no-public"]
+    "object-literal-sort-keys": false,
+    "member-access": [true, "no-public"],
+    "no-empty-interface": false
   }
 }

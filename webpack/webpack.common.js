@@ -1,5 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const path = require('path');
 const paths = require('./paths');
 
@@ -20,7 +20,11 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /\.js$/, include: path.resolve(paths.SRC), loader: 'babel-loader' },
+      {
+        test: /\.(j|t)sx?$/,
+        include: path.resolve(paths.SRC),
+        use: [{ loader: 'babel-loader', options: { cacheDirectory: false } }],
+      },
       {
         test: /\.(png|svg|jpg|gif)$/,
         include: path.resolve(paths.SRC),
@@ -46,15 +50,11 @@ module.exports = {
     runtimeChunk: true,
   },
   plugins: [
-    new CleanWebpackPlugin(['dist'], { root: paths.ROOT }),
     new HtmlWebpackPlugin({
       template: 'src/assets/index.html',
-      minify: {
-        collapseWhitespace: true,
-        collapseInlineTagWhitespace: true,
-        removeComments: true,
-        removeRedundantAttributes: true,
-      },
+    }),
+    new ForkTsCheckerWebpackPlugin({
+      watch: paths.SRC,
     }),
   ],
 };

@@ -11,16 +11,23 @@ const webpackOverlay = {
   module: {
     rules: [
       {
-        test: /\.scss$/,
+        test: /\.s?css$/,
+        include: path.resolve(paths.SRC),
         use: [
-          'style-loader',
+          { loader: 'style-loader', options: { hmr: false } },
           {
-            loader: 'typings-for-css-modules-loader',
+            loader: 'dts-css-modules-loader',
             options: {
               namedExport: true,
-              camelCase: true,
+              banner: '// This file is generated automatically',
+            },
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              camelCase: 'only',
               modules: true,
-              importLoaders: 1,
+              importLoaders: 2,
               sourceMap: true,
               localIdentName: '[name]__[local]__[hash:base64:5]',
             },
