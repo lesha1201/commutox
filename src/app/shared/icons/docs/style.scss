@@ -1,0 +1,19 @@
+.icons-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.icon-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  margin-bottom: 30px;
+}
+
+.icon-wrapper {
+  display: flex;
+  width: 30px;
+  height: 30px;
+}

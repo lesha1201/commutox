@@ -1,0 +1,182 @@
+@import 'src/app/style/abstracts/index';
+
+$header-height: 7.8rem;
+
+:global .page {
+  position: relative;
+
+  /* Temporary */
+
+  display: flex;
+  flex-direction: column;
+}
+
+:global .temp-icon {
+  display: flex;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+:global {
+  .header {
+    @extend %container;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2.4rem 2.6rem;
+    flex-shrink: 0;
+    height: $header-height;
+
+    background-color: $color-primary-white;
+  }
+
+  .header-wrapper {
+    padding-top: $header-height;
+  }
+
+  .logo {
+    padding: 0 1.6rem;
+    max-height: 3rem;
+  }
+
+  .feed {
+    position: relative;
+    flex-grow: 1;
+    // height: 100%;
+    padding: 0 1.2rem;
+    // overflow-y: auto;
+
+    // @extend %scrollbar-modern;
+  }
+
+  .drawer {
+    // @extend %container;
+
+    z-index: 20;
+    position: fixed;
+    // top: 0;
+    // left: 50%;
+    // transform: translateX(-50%);
+    height: 100%;
+
+    background-color: $color-primary-white;
+
+    &__box {
+      width: 250px;
+    }
+  }
+
+  .drawer-scrim {
+    @extend %container;
+
+    z-index: 19;
+    position: fixed;
+    // top: 0;
+    // left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba($color-primary-black, 0.3);
+  }
+
+  .message-card {
+    $root: &;
+
+    display: flex;
+    align-items: center;
+    padding: 1.2rem 1.4rem;
+    margin-bottom: 2rem;
+    width: 100%;
+
+    color: $color-primary-black;
+    background-color: $color-primary-white;
+    border-radius: $border-rad;
+    box-shadow: $shadow-airy-tile;
+    cursor: pointer;
+    text-decoration: none;
+
+    &--new {
+      background-image: linear-gradient(
+        darken($color-primary, 8%),
+        lighten($color-primary, 6%)
+      );
+      color: $color-primary-white;
+
+      #{$root}__time {
+        color: $color-primary-white;
+      }
+
+      #{$root}__counter {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.6rem;
+        height: 1.6rem;
+
+        background-color: $color-primary-white;
+        color: $color-primary;
+        border-radius: 50%;
+
+        font-size: 1rem;
+        font-weight: 700;
+      }
+
+      & #{$root}__avatar {
+        &::after {
+          border-color: $color-primary;
+        }
+      }
+    }
+
+    & &__avatar {
+      width: 5.5rem;
+      height: 5.5rem;
+      background-color: $color-primary;
+      background-image: url('http://www.ehairstyles.org/wp-content/uploads/2016/07/The-Great-Gatsby-Leonardo-DiCaprio-Hairstyle.jpg');
+      background-size: cover;
+      background-position: center;
+      border-radius: 50%;
+      margin-right: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    &__info {
+      flex-grow: 1;
+    }
+
+    &__row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &:not(:last-child) {
+        margin-bottom: 0.6rem;
+      }
+    }
+
+    &__name {
+      font-size: 1.6rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    &__message {
+      line-height: 1;
+    }
+
+    &__time {
+      font-size: 1rem;
+      line-height: 1;
+      color: $color-gray-2;
+    }
+
+    &__counter {
+      display: none;
+    }
+  }
+}
