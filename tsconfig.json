@@ -2,7 +2,7 @@
   "compilerOptions": {
     "sourceMap": true,
     "target": "esnext",
-    "jsx": "react",
+    "jsx": "preserve",
     "module": "esnext",
     "moduleResolution": "node",
     "experimentalDecorators": true,

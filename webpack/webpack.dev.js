@@ -27,6 +27,11 @@ module.exports = merge(common, {
     },
     overlay: true,
   },
+  resolve: {
+    alias: {
+      'react-dom': '@hot-loader/react-dom',
+    },
+  },
   module: {
     rules: [
       {
