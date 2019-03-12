@@ -1,10 +1,12 @@
 import cx from 'classnames';
 import * as React from 'react';
 
+import { OverwritableType } from 'app/models/common';
 import * as style from './button.scss';
 
 /* Typings */
-export interface IProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface IProps<T> {
+  as: T;
   theme: 'painted' | 'outlined';
   mainColor: 'primary' | 'success' | 'danger';
   size?: 'wide' | 'full';
@@ -12,19 +14,29 @@ export interface IProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 /* Component */
-function Button({ children, theme, size, mainColor, className, ...domAttrs }: IProps) {
+function Button<T extends React.ReactType = 'button'>({
+  children,
+  theme,
+  size,
+  mainColor,
+  className,
+  as,
+  ...domAttrs
+}: OverwritableType<IProps<T>, T>) {
   const cn = cx(className, style[theme], style[mainColor], size && style[size]);
+  const ElementType: React.ReactType = as;
 
   return (
-    <button className={cn} {...domAttrs}>
+    <ElementType className={cn} {...domAttrs}>
       {children}
-    </button>
+    </ElementType>
   );
 }
 
 Button.defaultProps = {
   theme: 'painted',
   mainColor: 'primary',
+  as: 'button',
 };
 
 export default Button;

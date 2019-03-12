@@ -60,4 +60,26 @@ describe('<Button />', () => {
       expect(container.firstChild).toMatchSnapshot();
     });
   });
+
+  describe('as prop', () => {
+    it('should be an anchor tag if as="a"', () => {
+      const { container } = render(
+        <Button as="a" href="#">
+          Link
+        </Button>,
+      );
+
+      expect(container.firstChild).toMatchSnapshot();
+    });
+
+    it('should be an instance of component if as={Component}', () => {
+      const testId = 'mock-component';
+      const MockComponent = (props: React.HTMLAttributes<HTMLDivElement>) => (
+        <div data-testid={testId} {...props} />
+      );
+      const { getByTestId } = render(<Button as={MockComponent}>Mock Component</Button>);
+
+      expect(getByTestId(testId));
+    });
+  });
 });

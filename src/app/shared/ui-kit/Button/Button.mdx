@@ -4,6 +4,7 @@ menu: UI Kit
 ---
 
 import { Playground, PropsTable } from 'docz';
+import { Link } from 'react-router-dom';
 import Margin from 'src/app/shared/docz-helpers/Margin';
 import Button from './index';
 
@@ -87,6 +88,26 @@ import Button from './index';
   </div>
 </Playground>
 
+## "As" Prop
+
+You can specify what element to use.
+
+<Playground>
+  <div style={{ fontSize: '16px' }}>
+
+    <Margin type="bottom">
+      <Button as="a" href="#">Link</Button>
+    </Margin>
+
+    <Margin type="bottom">
+      <Button as={Link} to="#">Router Link</Button>
+    </Margin>
+
+  </div>
+</Playground>
+
 ## Props
+
+<!-- @todo fix props table -->
 
 <PropsTable of={Button} />

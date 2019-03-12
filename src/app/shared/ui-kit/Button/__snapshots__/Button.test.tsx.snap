@@ -1,5 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Button /> as prop should be an anchor tag if as="a" 1`] = `
+<a
+  class="painted primary"
+  href="#"
+>
+  Link
+</a>
+`;
+
 exports[`<Button /> colors with color "danger" 1`] = `
 <button
   class="painted danger"
