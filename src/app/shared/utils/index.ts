@@ -1,5 +1,5 @@
-import capitalize from './capitalize';
-import containsAllKeys from './contains-all-keys';
-import debounce from './debounce';
-
-export { capitalize, containsAllKeys, debounce };
+export * from './dom';
+export * from './function';
+export * from './object';
+export * from './string';
+export * from './logic';
