@@ -3,7 +3,7 @@ module.exports = {
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   moduleNameMapper: {
-    'app/(.*)$': '<rootDir>/src/app/$1',
+    'app\\\\(.*)$': '<rootDir>/src/app/$1',
     '\\.s?css$': '<rootDir>/test/identity-obj-proxy.js',
   },
   setupFilesAfterEnv: ['<rootDir>/test/setupTests.js'],
