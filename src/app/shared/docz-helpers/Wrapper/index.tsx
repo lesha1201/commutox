@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import * as style from './wrapper.scss';
+import style from './wrapper.scss';
 
 class Wrapper extends React.Component<{}, {}> {
   render() {

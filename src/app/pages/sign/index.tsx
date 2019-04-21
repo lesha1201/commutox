@@ -4,7 +4,7 @@ import { RouteComponentProps } from 'react-router-dom';
 import Logo from 'app/shared/components/Logo';
 import { SignInForm, SignUpForm } from './components/SignForm';
 import Tabs from './components/Tabs';
-import * as style from './sign-page.scss';
+import style from './sign-page.scss';
 
 class SignPage extends React.Component<RouteComponentProps, {}> {
   /* ♻️ Lifecycle -------------------*/

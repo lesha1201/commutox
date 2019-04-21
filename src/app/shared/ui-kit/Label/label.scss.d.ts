@@ -1,2 +1,6 @@
 // This file is generated automatically
-export const label: string;
+export interface ILabelScss {
+  'label': string;
+}
+declare const styles: ILabelScss;
+export default styles;

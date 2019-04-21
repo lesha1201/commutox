@@ -7,7 +7,7 @@ import * as React from 'react';
 
 import FormField from './compounds/FormField';
 import FormGroup from './compounds/FormGroup';
-import * as style from './form.scss';
+import style from './form.scss';
 
 /* Typings */
 export interface IProps extends React.FormHTMLAttributes<HTMLFormElement> {

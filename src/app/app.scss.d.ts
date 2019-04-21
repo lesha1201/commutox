@@ -1,2 +1,6 @@
 // This file is generated automatically
-export const app: string;
+export interface IAppScss {
+  'app': string;
+}
+declare const styles: IAppScss;
+export default styles;

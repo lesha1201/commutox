@@ -2,7 +2,7 @@ import cx from 'classnames';
 import * as React from 'react';
 
 import { equalToOr, getScrollParent } from 'app/shared/utils';
-import * as styles from './header.scss';
+import styles from './header.scss';
 
 const { useRef, useState, useEffect } = React;
 

@@ -6,7 +6,7 @@ import { Route, Switch } from 'react-router-dom';
 import { routes } from 'app/routes';
 import { configureStore } from 'app/state';
 import 'app/style/main.scss'; // Global styles
-import * as style from './app.scss';
+import style from './app.scss';
 
 const store = configureStore();
 

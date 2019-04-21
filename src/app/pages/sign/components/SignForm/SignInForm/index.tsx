@@ -4,7 +4,7 @@ import { RouteComponentProps, withRouter } from 'react-router-dom';
 import * as Yup from 'yup';
 
 import FormContainer, { IFormProps } from 'app/shared/components/FormContainer';
-import * as style from '../sign-form.scss';
+import style from '../sign-form.scss';
 
 function someApiCall(data: any) {
   return new Promise((resolve, reject) => {

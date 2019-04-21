@@ -42,7 +42,7 @@ module.exports = merge(common, {
           {
             loader: 'dts-css-modules-loader',
             options: {
-              namedExport: true,
+              namedExport: false,
               banner: '// This file is generated automatically',
             },
           },

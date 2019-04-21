@@ -1,3 +1,7 @@
 // This file is generated automatically
-export const header: string;
-export const wrapper: string;
+export interface IHeaderScss {
+  'header': string;
+  'wrapper': string;
+}
+declare const styles: IHeaderScss;
+export default styles;

@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import * as React from 'react';
 
-import * as style from './margin.scss';
+import style from './margin.scss';
 
 export interface IProps {
   type: 'top' | 'bottom';

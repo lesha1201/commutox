@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import * as icons from 'app/shared/icons';
-import * as style from './style.scss';
+import style from './style.scss';
 
 function IconsList() {
   return (

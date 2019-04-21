@@ -1,6 +1,14 @@
 {
   "presets": [
-    ["@babel/preset-env", { "loose": true, "useBuiltIns": "usage", "modules": false }],
+    [
+      "@babel/preset-env",
+      {
+        "loose": true,
+        "useBuiltIns": "usage",
+        "corejs": 3,
+        "modules": false
+      }
+    ],
     "@babel/preset-react",
     "@babel/preset-typescript"
   ],
@@ -13,7 +21,12 @@
       "presets": [
         [
           "@babel/preset-env",
-          { "loose": true, "useBuiltIns": "usage", "targets": { "node": "current" } }
+          {
+            "loose": true,
+            "useBuiltIns": "usage",
+            "corejs": 3,
+            "targets": { "node": "current" }
+          }
         ]
       ]
     }

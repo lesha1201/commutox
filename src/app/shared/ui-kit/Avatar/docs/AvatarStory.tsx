@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import Avatar from '../index';
-import * as style from './avatar-story.scss';
+import style from './avatar-story.scss';
 
 class AvatarStory extends React.Component<{}, {}> {
   render() {

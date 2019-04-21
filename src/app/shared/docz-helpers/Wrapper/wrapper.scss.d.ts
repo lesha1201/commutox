@@ -1,2 +1,6 @@
 // This file is generated automatically
-export const base: string;
+export interface IWrapperScss {
+  'base': string;
+}
+declare const styles: IWrapperScss;
+export default styles;

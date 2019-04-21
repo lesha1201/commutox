@@ -1,4 +1,8 @@
 // This file is generated automatically
-export const iconsList: string;
-export const iconInfo: string;
-export const iconWrapper: string;
+export interface IStyleScss {
+  'iconsList': string;
+  'iconInfo': string;
+  'iconWrapper': string;
+}
+declare const styles: IStyleScss;
+export default styles;

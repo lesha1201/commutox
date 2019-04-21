@@ -18,7 +18,7 @@ const webpackOverlay = {
           {
             loader: 'dts-css-modules-loader',
             options: {
-              namedExport: true,
+              namedExport: false,
               banner: '// This file is generated automatically',
             },
           },
@@ -61,4 +61,6 @@ export default {
   modifyBundlerConfig: config => {
     return merge(config, webpackOverlay);
   },
+  filterComponents: files =>
+    files.filter(filepath => /\/[A-Z]\w*(\/index)?\.(js|jsx|ts|tsx)$/.test(filepath)),
 };

@@ -2,7 +2,7 @@ import cx from 'classnames';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 
-import * as style from './tabs.scss';
+import style from './tabs.scss';
 
 /* Typings */
 interface IProps {

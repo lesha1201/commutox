@@ -1,4 +1,8 @@
 // This file is generated automatically
-export const signForm: string;
-export const signButton: string;
-export const formGroup: string;
+export interface ISignFormScss {
+  'signForm': string;
+  'signButton': string;
+  'formGroup': string;
+}
+declare const styles: ISignFormScss;
+export default styles;

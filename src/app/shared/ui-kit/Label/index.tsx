@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import * as style from './label.scss';
+import style from './label.scss';
 
 /* Typings */
 export interface IProps extends React.LabelHTMLAttributes<HTMLLabelElement> {

@@ -2,7 +2,7 @@ import cx from 'classnames';
 import * as React from 'react';
 
 import { OverwritableType } from 'app/models/common';
-import * as style from './button.scss';
+import style from './button.scss';
 
 /* Typings */
 export interface IProps<T> {

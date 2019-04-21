@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import * as React from 'react';
 
-import * as style from './avatar.scss';
+import style from './avatar.scss';
 
 /* Typings */
 export interface IProps extends React.HTMLAttributes<HTMLDivElement> {

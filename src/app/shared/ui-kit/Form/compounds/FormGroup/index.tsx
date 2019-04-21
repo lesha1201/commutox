@@ -2,7 +2,7 @@ import cx from 'classnames';
 import * as React from 'react';
 
 import { capitalize } from 'app/shared/utils';
-import * as style from '../../form.scss';
+import style from '../../form.scss';
 
 /* Typings */
 export interface IProps extends React.HTMLAttributes<HTMLDivElement> {
