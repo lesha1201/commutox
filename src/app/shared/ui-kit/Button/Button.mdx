@@ -3,14 +3,13 @@ name: Button
 menu: UI Kit
 ---
 
-import { Playground, PropsTable } from 'docz';
-import { Link } from 'react-router-dom';
+import { Playground, Props } from 'docz';
 import Margin from 'src/app/shared/docz-helpers/Margin';
 import Button from './index';
 
 # Button
 
-\<Button \/> is just html tag \<button \/> with styles. All dom attrs of a button is acceptable.
+`<Button />` is just html tag `<button />` with styles. All dom attrs of a button is acceptable.
 
 ## Types
 
@@ -92,22 +91,14 @@ import Button from './index';
 
 You can specify what element to use.
 
-<Playground>
-  <div style={{ fontSize: '16px' }}>
+```jsx
+// Using tag name
+<Button as="a" href="#">Link</Button>
 
-    <Margin type="bottom">
-      <Button as="a" href="#">Link</Button>
-    </Margin>
-
-    <Margin type="bottom">
-      <Button as={Link} to="#">Router Link</Button>
-    </Margin>
-
-  </div>
-</Playground>
+// Using another component (should pass className prop in order styles to be applied)
+<Button as={Link} to="#">Router Link</Button>
+```
 
 ## Props
 
-<!-- @todo fix props table -->
-
-<PropsTable of={Button} />
+<Props of={Button} />
