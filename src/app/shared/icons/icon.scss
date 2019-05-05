@@ -1,0 +1,38 @@
+.base {
+  display: inline-flex;
+}
+
+.xs {
+  composes: base;
+
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.sm {
+  composes: base;
+
+  width: 2rem;
+  height: 2rem;
+}
+
+.md {
+  composes: base;
+
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.lg {
+  composes: base;
+
+  width: 3rem;
+  height: 3rem;
+}
+
+.xl {
+  composes: base;
+
+  width: 3.5rem;
+  height: 3.5rem;
+}

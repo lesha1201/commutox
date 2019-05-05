@@ -1,7 +1,28 @@
+import { Playground, Props } from 'docz';
 import { IconsList } from './IconsStory';
+import Icon from '../index';
+import style from './style.scss';
 
 # Icons
 
 ## List of icons
 
 <IconsList />
+
+## Sizes
+
+<Playground>
+  <div className={style.iconSizes}>
+    <Icon name="search" size="xs" />
+    <Icon name="search" size="sm" />
+    <Icon name="search" size="md" />
+    <Icon name="search" size="lg" />
+    <Icon name="search" size="xl" />
+  </div>
+</Playground>
+
+## Props
+
+### Icon component
+
+<Props of={Icon} />
