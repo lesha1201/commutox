@@ -1,0 +1,102 @@
+---
+name: Drawer
+menu: Components
+route: /components/drawer
+---
+
+import { Playground, Props } from 'docz';
+import Frame from 'app/shared/docz-helpers/Frame';
+import Drawer, { useDrawer } from '../index';
+
+# Drawer
+
+## Usage
+
+### Using hook
+
+```jsx
+function Foo() {
+  const { isShown, closeDrawer, toggleDrawer } = useDrawer(false);
+
+  return (
+    <div>
+      <Drawer isShown={isShown} close={closeDrawer}>
+        Drawer
+      </Drawer>
+      <button onClick={toggleDrawer}>Toggle</button>
+    </div>
+  );
+}
+```
+
+### Using state
+
+```jsx
+class Foo extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isShown: false,
+    };
+  }
+
+  closeDrawer = () => {
+    this.setState({ isShown: false });
+  };
+
+  toggleDrawer = () => {
+    this.setState(s => ({ isShown: !s.isShown }));
+  };
+
+  render() {
+    return (
+      <div>
+        <Drawer isShown={this.state.isShown} close={this.closeDrawer}>
+          Drawer Content
+        </Drawer>
+        <button onClick={this.toggleDrawer}>Toggle</button>
+      </div>
+    );
+  }
+}
+```
+
+## Theming
+
+You can assign classNames for drawer and its scrim (dark background) and style it using CSS.
+
+```css
+.drawer {
+  background-color: dodgerblue;
+  color: white;
+  padding: 20px 16px;
+}
+
+.drawer-scrim {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+```
+
+```jsx
+const drawerCn = {
+  drawer: 'drawer',
+  scrim: 'drawer-scrim',
+};
+
+function Foo() {
+  const { isShown, closeDrawer, toggleDrawer } = useDrawer(false);
+
+  return (
+    <div>
+      <Drawer className={drawerCn} isShown={isShown} close={closeDrawer}>
+        Drawer
+      </Drawer>
+      <button onClick={toggleDrawer}>Toggle</button>
+    </div>
+  );
+}
+```
+
+## Props
+
+<Props of={Drawer} />
