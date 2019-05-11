@@ -1,3 +1,2 @@
-import capitalize from './capitalize';
-
-export { capitalize };
+export { default as capitalize } from './capitalize';
+export { default as toCamelCase } from './toCamelCase';
