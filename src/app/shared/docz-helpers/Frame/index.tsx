@@ -30,11 +30,15 @@ function Frame({ head, children, initialContent, ...rest }: IProps) {
       setIframeBody(contentDocument.body);
     };
 
-    if (initialContent && !isDocWritten) {
+    if (!isDocWritten) {
       contentDocument.open('text/html', 'replace');
-      contentDocument.write(initialContent);
-      contentDocument.close();
+      contentDocument.write('<!doctype html>');
 
+      if (initialContent) {
+        contentDocument.write(initialContent);
+      }
+
+      contentDocument.close();
       setIsDocWritten(true);
     }
 
