@@ -1,6 +1,6 @@
 // This file is generated automatically
 export interface IButtonIconScss {
-  base: string;
+  'base': string;
 }
 declare const styles: IButtonIconScss;
 export default styles;
