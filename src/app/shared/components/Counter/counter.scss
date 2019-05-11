@@ -1,0 +1,28 @@
+@import 'src/app/style/abstracts/index';
+
+.base {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6rem;
+  height: 1.6rem;
+
+  border-radius: 50%;
+
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.primary {
+  composes: base;
+
+  background-color: $color-primary;
+  color: $color-primary-white;
+}
+
+.primary-inverted {
+  composes: base;
+
+  background-color: $color-primary-white;
+  color: $color-primary;
+}
