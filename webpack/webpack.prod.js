@@ -23,7 +23,7 @@ module.exports = merge(common, {
           {
             loader: 'dts-css-modules-loader',
             options: {
-              namedExport: true,
+              namedExport: false,
               banner: '// This file is generated automatically',
             },
           },
@@ -43,7 +43,7 @@ module.exports = merge(common, {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(['dist'], { root: paths.ROOT }),
+    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: '[contenthash].css',
     }),

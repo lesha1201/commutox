@@ -8,7 +8,7 @@ module.exports = {
   entry: path.join(paths.SRC, 'main.tsx'),
   output: {
     path: paths.DIST,
-    filename: 'main.bundle.js',
+    filename: '[name].bundle.js',
     chunkFilename: '[chunkhash].js',
     publicPath: '/',
   },

@@ -62,5 +62,5 @@ export default {
     return merge(config, webpackOverlay);
   },
   filterComponents: files =>
-    files.filter(filepath => /\/[A-Z]\w*(\/index)?\.(js|jsx|ts|tsx)$/.test(filepath)),
+    files.filter(filepath => /\/\w*\.(js|jsx|tsx)$/.test(filepath)),
 };
