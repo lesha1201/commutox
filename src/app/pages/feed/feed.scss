@@ -1,2 +1,25 @@
-.feed {
+@import 'src/app/style/abstracts/index';
+
+.header {
+  @extend %container;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.4rem 2.6rem;
+  height: $header-height;
+
+  background-color: $color-primary-white;
+}
+
+.header-wrapper {
+  position: relative;
+
+  padding: 0 1.2rem;
+  padding-top: $header-height;
+}
+
+.logo {
+  padding: 0 1.6rem;
+  height: 100%;
 }
