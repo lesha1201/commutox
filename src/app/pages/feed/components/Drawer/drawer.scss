@@ -1,0 +1,84 @@
+@import 'src/app/style/abstracts/index';
+
+.drawer {
+  background-color: $color-primary-white;
+  padding: 1.4rem 1.2rem;
+}
+
+.drawer-scrim {
+  @extend %container;
+  background-color: rgba($color-primary-black, 0.4);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.avatar-with-name {
+  margin: 0 2.8rem;
+}
+
+.avatar {
+  width: $avatar-size;
+  height: $avatar-size;
+  flex-shrink: 0;
+  margin: 0 auto;
+  margin-bottom: 0.6rem;
+}
+
+.username {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.nav {
+  $root: &;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+  }
+
+  &__item {
+    box-shadow: $shadow-airy-tile;
+    border-radius: $border-rad;
+    background-color: $color-primary-white;
+    color: $color-primary-black;
+
+    &:not(:last-child) {
+      margin-bottom: 1.8rem;
+    }
+
+    &--active {
+      background-color: $color-primary;
+      color: $color-primary-white;
+      box-shadow: $shadow-airy-tile-primary;
+    }
+  }
+
+  &__item-text {
+    font-weight: 600;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.2rem;
+
+    color: inherit;
+    text-decoration: none;
+  }
+
+  &__item-icon {
+    margin-right: 1.2rem;
+  }
+
+  &__item-counter {
+    margin-left: auto;
+  }
+}

@@ -15,8 +15,8 @@
   text-decoration: none;
 
   & .avatar {
-    width: 5.5rem;
-    height: 5.5rem;
+    width: $avatar-size;
+    height: $avatar-size;
     background-color: $color-primary;
     margin-right: 1.4rem;
     flex-shrink: 0;
