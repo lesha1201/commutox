@@ -1,0 +1,84 @@
+@import 'src/app/style/abstracts/index';
+
+.normal {
+  display: flex;
+  align-items: center;
+  padding: 1.2rem 1.4rem;
+  margin-bottom: 2rem;
+  width: 100%;
+
+  color: $color-primary-black;
+  background-color: $color-primary-white;
+  border-radius: $border-rad;
+  box-shadow: $shadow-airy-tile;
+  cursor: pointer;
+  text-decoration: none;
+
+  & .avatar {
+    width: 5.5rem;
+    height: 5.5rem;
+    background-color: $color-primary;
+    margin-right: 1.4rem;
+    flex-shrink: 0;
+  }
+
+  & .info {
+    flex-grow: 1;
+  }
+
+  & .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &:not(:last-child) {
+      margin-bottom: 0.6rem;
+    }
+  }
+
+  & .name {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  & .message {
+    line-height: 1;
+  }
+
+  & .time {
+    font-size: 1rem;
+    line-height: 1;
+    color: $color-gray-2;
+  }
+
+  & .counter {
+    display: none;
+  }
+}
+
+.new-message {
+  composes: normal;
+
+  /* TODO: Color of new message should be customizable */
+  background-image: linear-gradient(
+    darken($color-primary, 7%),
+    lighten($color-primary, 7%)
+  );
+  color: $color-primary-white;
+  box-shadow: $shadow-airy-tile-primary;
+
+  & .time {
+    color: $color-primary-white;
+  }
+
+  & .counter {
+    display: flex;
+  }
+
+  & .avatar {
+    &::after {
+      border-color: $color-primary;
+    }
+  }
+}
