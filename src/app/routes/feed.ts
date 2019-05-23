@@ -1,5 +1,7 @@
-import FeedPage from 'app/pages/feed';
+import { lazy } from 'react';
 import { RouteProps } from 'react-router-dom';
+
+const FeedPage = lazy(() => import('app/pages/feed'));
 
 const feedRoute: RouteProps = {
   exact: true,

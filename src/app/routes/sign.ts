@@ -1,5 +1,7 @@
-import SignPage from 'app/pages/sign';
-import { RouteProps } from 'react-router';
+import { lazy } from 'react';
+import { RouteProps } from 'react-router-dom';
+
+const SignPage = lazy(() => import('app/pages/sign'));
 
 const signRoute: RouteProps = {
   exact: true,

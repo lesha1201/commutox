@@ -18,7 +18,9 @@ function App() {
   return (
     <Provider store={store}>
       <div className={style.app}>
-        <Switch>{routesComponents}</Switch>
+        <React.Suspense fallback={<div>Loading routes...</div>}>
+          <Switch>{routesComponents}</Switch>
+        </React.Suspense>
       </div>
     </Provider>
   );

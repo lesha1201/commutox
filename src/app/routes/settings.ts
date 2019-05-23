@@ -1,5 +1,7 @@
-import SettingsPage from 'app/pages/settings';
+import { lazy } from 'react';
 import { RouteProps } from 'react-router-dom';
+
+const SettingsPage = lazy(() => import('app/pages/settings'));
 
 const settingsRoute: RouteProps = {
   exact: true,
