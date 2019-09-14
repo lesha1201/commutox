@@ -17,7 +17,7 @@ export interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
 }
 
 /* Component */
-class Input extends React.Component<IProps, {}> {
+class Input extends React.PureComponent<IProps, {}> {
   /* 🗿 Static properties ------------*/
   static defaultProps = {
     type: 'text',

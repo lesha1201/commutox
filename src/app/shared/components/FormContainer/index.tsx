@@ -5,7 +5,7 @@
 import * as React from 'react';
 import * as Yup from 'yup';
 
-import { containsAllKeys, debounce } from 'app/shared/utils';
+import { containsAllKeys, debounce, get } from 'app/shared/utils';
 
 /* Typings */
 type API = ReturnType<FormContainer['getHelpers']>;
@@ -26,6 +26,11 @@ export interface IFormProps {
   onSubmit: (data: IValues, setFormState: FormContainer['setFormState']) => void;
   validate?: (data: IValues) => IValues;
   validationSchema?: Yup.Schema<IValues>;
+  setStateOnChange?: (
+    name: string,
+    value: string,
+    prevState: IFormState,
+  ) => Partial<IFormState> | null;
 }
 
 export interface IFormState {
@@ -98,10 +103,10 @@ class FormContainer extends React.Component<IFormProps, IFormState> {
     this.isValidateSubmit = /submit|all/i.test(this.props.validateOn);
     this.isValidateChange = /change|all/i.test(this.props.validateOn);
 
-    this.debouncedValidateOnChange = debounce(
-      this.validateOnChange,
-      this.props.validationWait,
-    );
+    this.debouncedValidateOnChange =
+      this.props.validationWait > 0
+        ? debounce(this.validateOnChange, this.props.validationWait)
+        : this.validateOnChange;
   }
 
   render() {
@@ -180,25 +185,39 @@ class FormContainer extends React.Component<IFormProps, IFormState> {
 
   private onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
+    let shouldDebounce = true;
 
     this.setState(
       prevState => {
-        if (prevState.data[name] !== undefined) {
-          return {
-            data: {
-              ...prevState.data,
-              [name]: value,
-            },
-            errors: {
-              ...prevState.errors,
-              [name]: '',
-            },
-          };
+        if (prevState.data[name] === undefined) {
+          return null;
         }
 
-        return null;
+        if (typeof this.props.setStateOnChange === 'function') {
+          const newState = this.props.setStateOnChange(name, value, prevState);
+
+          if (get(newState, ['errors', name])) {
+            shouldDebounce = false;
+          }
+
+          return newState as (IFormState | null);
+        }
+
+        if (prevState.errors[name]) {
+          shouldDebounce = false;
+        }
+
+        return {
+          data: {
+            ...prevState.data,
+            [name]: value,
+          },
+        } as IFormState;
       },
-      () => this.debouncedValidateOnChange(name, value),
+      () =>
+        shouldDebounce
+          ? this.debouncedValidateOnChange(name, value)
+          : this.validateOnChange(name, value),
     );
   };
 

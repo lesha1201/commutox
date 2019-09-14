@@ -26,7 +26,18 @@ class SignUpForm extends React.Component<IProps, {}> {
     full_name: '',
   };
 
-  validationSchema = Yup.object().shape({
+  // TODO: for some reason I need to specify type explicitly
+  validationSchema: Yup.ObjectSchema<
+    Yup.Shape<
+      object,
+      {
+        email: string;
+        password: string;
+        conf_password: string;
+        full_name: string;
+      }
+    >
+  > = Yup.object().shape({
     email: Yup.string()
       .email()
       .required(),
