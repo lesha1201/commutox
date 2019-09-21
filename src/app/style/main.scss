@@ -1,9 +1,3 @@
-/*
- * Sass-loader for some reason can't resolve _index.scss without explicitly write it
- * (e.g. 'abstracts' instead of 'abstracts/index')
- * Mb they will fix it in the next release
- */
+@import 'abstracts';
 
-@import 'abstracts/index';
-
-@import 'base/index';
+@import 'base';

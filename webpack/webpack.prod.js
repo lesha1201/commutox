@@ -30,14 +30,21 @@ module.exports = merge(common, {
           {
             loader: 'css-loader',
             options: {
-              camelCase: 'only',
               modules: true,
+              localsConvention: 'camelCaseOnly',
               importLoaders: 2,
               sourceMap: true,
             },
           },
           'postcss-loader',
-          'sass-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              sassOptions: {
+                includePaths: [paths.SRC],
+              },
+            },
+          },
         ],
       },
     ],

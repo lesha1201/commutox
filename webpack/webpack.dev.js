@@ -38,7 +38,7 @@ module.exports = merge(common, {
         test: /\.s?css$/,
         include: path.resolve(paths.SRC),
         use: [
-          { loader: 'style-loader', options: { hmr: false } },
+          'style-loader',
           {
             loader: 'dts-css-modules-loader',
             options: {
@@ -49,15 +49,23 @@ module.exports = merge(common, {
           {
             loader: 'css-loader',
             options: {
-              camelCase: 'only',
-              modules: true,
+              modules: {
+                localIdentName: '[name]__[local]__[hash:base64:5]',
+              },
+              localsConvention: 'camelCaseOnly',
               importLoaders: 2,
               sourceMap: true,
-              localIdentName: '[name]__[local]__[hash:base64:5]',
             },
           },
           'postcss-loader',
-          'sass-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              sassOptions: {
+                includePaths: [paths.SRC],
+              },
+            },
+          },
         ],
       },
     ],

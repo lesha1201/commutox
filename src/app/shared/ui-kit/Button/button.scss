@@ -2,7 +2,7 @@
  * Button        *
  * * * * * * * * */
 
-@import 'src/app/shared/ui-kit/sass/variables';
+@import 'app/shared/ui-kit/sass/variables';
 
 @function get-disabled-color($color) {
   @return adjust-color($color, $saturation: -25%, $alpha: -0.3);
