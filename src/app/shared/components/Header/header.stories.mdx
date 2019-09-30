@@ -1,0 +1,45 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+
+import Header from './index';
+
+# Header
+
+<Meta title="App Components/Header" component={Header} />
+
+## Stories
+
+### Default
+
+<Preview withToolbar>
+  <Story name="default" height="200px" inline={false}>
+    <div>
+      <Header
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          backgroundColor: 'dodgerblue',
+          color: 'white',
+          fontWeight: 'bold',
+        }}
+      >
+        Header content
+      </Header>
+      <Header.Wrapper>
+        {[...Array(20).keys()].map(val => (
+          <div
+            key={val}
+            style={{
+              padding: '10px 0',
+            }}
+          >
+            Content
+          </div>
+        ))}
+      </Header.Wrapper>
+    </div>
+  </Story>
+</Preview>
+
+## Props
+
+<Props of={Header} />

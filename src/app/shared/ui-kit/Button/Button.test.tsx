@@ -10,9 +10,6 @@ describe('<Button />', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  // it("should accept any button's dom attrs", () => {
-  // });
-
   describe('themes', () => {
     it('with theme "painted"', () => {
       const { container } = render(<Button theme="painted">button</Button>);

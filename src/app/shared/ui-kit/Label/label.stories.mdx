@@ -1,0 +1,30 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+
+import { Margin } from 'app/shared/storybook-helpers';
+import { Input } from 'app/shared/ui-kit';
+import Label from './index';
+
+# Label
+
+<Meta title="UI Kit/Label" component={Label} />
+
+`<Label />` is just html tag `<label />` with styles.
+
+## Stories
+
+### Default
+
+<Preview withToolbar>
+  <Story name="default">
+    <div style={{ fontSize: '14px' }}>
+      <Label htmlFor="first-name" style={{ marginBottom: '6px' }}>
+        First name
+      </Label>
+      <Input id="first-name" placeholder="First name" width="full" />
+    </div>
+  </Story>
+</Preview>
+
+## Props
+
+<Props of={Label} />

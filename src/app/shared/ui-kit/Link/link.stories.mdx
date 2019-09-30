@@ -1,0 +1,28 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { BrowserRouter } from 'react-router-dom';
+
+import Link from './index';
+
+# Link
+
+<Meta title="UI Kit/Link" component={Link} />
+
+`<Link />` is styled react-router `Link`.
+
+## Stories
+
+### Default
+
+<Preview withToolbar>
+  <Story name="default">
+    <BrowserRouter>
+      <Link to="#" style={{ fontSize: '16px' }}>
+        Link
+      </Link>
+    </BrowserRouter>
+  </Story>
+</Preview>
+
+## Props
+
+<Props of={Link} />

@@ -11,6 +11,9 @@ Thoughts.md
 # Docz
 .docz/
 
+# Storybook
+storybook-static/
+
 # Distribution folder
 dist/
 

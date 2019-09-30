@@ -1,0 +1,98 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+
+import { Margin } from 'app/shared/storybook-helpers';
+import Button from './index';
+
+# Button
+
+<Meta title="UI Kit/Button" component={Button} />
+
+`<Button />` is just html tag `<button />` with styles. All dom attrs of a button is acceptable.
+
+## Stories
+
+### Types
+
+<Preview withToolbar>
+  <Story name="types">
+    <div style={{ fontSize: '16px' }}>
+      <Button style={{ marginRight: '1em' }}>Default</Button>
+      <Button theme="outlined" style={{ marginRight: '1em' }}>
+        Outlined
+      </Button>
+      <Button disabled style={{ marginRight: '1em' }}>
+        Disabled
+      </Button>
+      <Button disabled theme="outlined" style={{ marginRight: '1em' }}>
+        Disabled
+      </Button>
+    </div>
+  </Story>
+</Preview>
+
+### Sizes
+
+<Preview withToolbar>
+  <Story name="sizes">
+    <div style={{ fontSize: '16px' }}>
+      <Margin type="bottom">
+        <Button>Default</Button>
+      </Margin>
+      <Margin type="bottom">
+        <Button size="wide">Wide</Button>
+      </Margin>
+      <Margin>
+        <Button size="full">Full</Button>
+      </Margin>
+    </div>
+  </Story>
+</Preview>
+
+### Colors
+
+<Preview withToolbar>
+  <Story name="colors">
+    <div style={{ fontSize: '16px' }}>
+      <Margin type="bottom">
+        <h3 style={{ marginBottom: '8px' }}>Default</h3>
+        <Button mainColor="primary" style={{ marginRight: '1em' }}>
+          Primary
+        </Button>
+        <Button mainColor="success" style={{ marginRight: '1em' }}>
+          Success
+        </Button>
+        <Button mainColor="danger">Danger</Button>
+      </Margin>
+      <div>
+        <h3 style={{ marginBottom: '8px' }}>Outlined</h3>
+        <Button mainColor="primary" theme="outlined" style={{ marginRight: '1em' }}>
+          Primary
+        </Button>
+        <Button mainColor="success" theme="outlined" style={{ marginRight: '1em' }}>
+          Success
+        </Button>
+        <Button mainColor="danger" theme="outlined">
+          Danger
+        </Button>
+      </div>
+    </div>
+  </Story>
+</Preview>
+
+## "As" Prop
+
+You can specify what element to use.
+
+```jsx
+// Using tag name
+<Button as="a" href="#">Link</Button>
+
+// Using another component (should pass className prop in order styles to be applied)
+<Button as={Link} to="#">Router Link</Button>
+```
+
+## Props
+
+Button also accepts all dom props depending on html tag (button, a, etc) it uses.
+
+<Props of={Button} />

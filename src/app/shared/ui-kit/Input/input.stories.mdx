@@ -1,0 +1,83 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+
+import { Margin } from 'app/shared/storybook-helpers';
+import Input from './index';
+
+# Input
+
+<Meta title="UI Kit/Input" component={Input} />
+
+## Stories
+
+### Default
+
+<Preview withToolbar>
+  <Story name="default">
+    <div style={{ fontSize: '14px' }}>
+      <Input placeholder="First name" />
+    </div>
+  </Story>
+</Preview>
+
+### Width modifiers
+
+<Preview withToolbar>
+  <Story name="width modifiers">
+    <div style={{ fontSize: '14px' }}>
+      <Margin type="bottom">
+        <Input placeholder="Small" width="small" />
+      </Margin>
+      <Margin type="bottom">
+        <Input placeholder="Medium" width="medium" />
+      </Margin>
+      <Margin type="bottom">
+        <Input placeholder="Large" width="large" />
+      </Margin>
+      <Margin type="top">
+        <Input placeholder="Full" width="full" />
+      </Margin>
+    </div>
+  </Story>
+</Preview>
+
+### Before/after addons
+
+<Preview withToolbar>
+  <Story name="before/after addons">
+    <div style={{ fontSize: '14px' }}>
+      <Margin type="bottom">
+        <Input placeholder="Addons" addonBefore="Before" />
+      </Margin>
+      <Margin type="bottom">
+        <Input placeholder="Addons" addonAfter="After" />
+      </Margin>
+      <Margin type="bottom">
+        <Input placeholder="Addons" addonBefore="Before" addonAfter="After" />
+      </Margin>
+    </div>
+  </Story>
+</Preview>
+
+### Disabled
+
+<Preview withToolbar>
+  <Story name="sisabled">
+    <div style={{ fontSize: '14px' }}>
+      <Input placeholder="Disabled" disabled />
+    </div>
+  </Story>
+</Preview>
+
+### Error
+
+<Preview withToolbar>
+  <Story name="error">
+    <div style={{ fontSize: '14px' }}>
+      <Input placeholder="Error" hasError />
+    </div>
+  </Story>
+</Preview>
+
+## Props
+
+<Props of={Input} />

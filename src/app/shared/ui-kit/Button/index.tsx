@@ -5,8 +5,11 @@ import { OverwritableType } from 'app/models/common';
 import style from './button.scss';
 
 /* Typings */
+
 export interface IProps<T> {
+  /** Element type (React component or string) that will be used */
   as: T;
+  /** Variant */
   theme: 'painted' | 'outlined';
   mainColor: 'primary' | 'success' | 'danger';
   size?: 'wide' | 'full';
@@ -14,6 +17,7 @@ export interface IProps<T> {
 }
 
 /* Component */
+
 function Button<T extends React.ReactType = 'button'>({
   children,
   theme,

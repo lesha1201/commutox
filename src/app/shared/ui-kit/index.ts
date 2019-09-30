@@ -1,8 +1,6 @@
-import Avatar from './Avatar';
-import Button from './Button';
-import Form from './Form';
-import Input from './Input';
-import Label from './Label';
-import Link from './Link';
-
-export { Form, Avatar, Button, Input, Label, Link };
+export { default as Avatar } from './Avatar';
+export { default as Button } from './Button';
+export { default as Form } from './Form';
+export { default as Input } from './Input';
+export { default as Label } from './Label';
+export { default as Link } from './Link';
