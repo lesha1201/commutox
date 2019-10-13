@@ -4,8 +4,8 @@
 
 import { combineReducers } from 'redux';
 
-import { IRootState } from 'app/models/state';
 import { testReducer } from 'app/state/test';
+import { IRootState } from 'app/types/state';
 
 export const rootReducer = combineReducers<IRootState>({
   test: testReducer,

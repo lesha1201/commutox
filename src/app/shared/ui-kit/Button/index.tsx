@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import * as React from 'react';
 
-import { OverwritableType } from 'app/models/common';
+import { OverwritableType } from 'app/types/common';
 import style from './button.scss';
 
 /* Typings */
