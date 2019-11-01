@@ -14,8 +14,6 @@
     "start": "webpack-dev-server --config webpack/webpack.dev.js --progress --color",
     "prebuild": "npm run validate",
     "build": "webpack --config webpack/webpack.prod.js -p --progress --colors",
-    "docz:dev": "docz dev",
-    "docz:build": "docz build",
     "tslint": "tslint -p tsconfig.json -c tslint.json",
     "typecheck": "tsc --noEmit",
     "prettier": "prettier --config ./.prettierrc \"**/!(*.?(s)css.d).+(js|jsx|ts|tsx|json|yaml|yml|css|sass|scss|md|mdx|graphql)\"",
