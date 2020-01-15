@@ -9,12 +9,14 @@ import FormField from './compounds/FormField';
 import FormGroup from './compounds/FormGroup';
 import style from './form.scss';
 
-/* Typings */
+/* -- Types */
+
 export interface IProps extends React.FormHTMLAttributes<HTMLFormElement> {
   children?: React.ReactNode;
 }
 
-/* Component */
+/* -- Main */
+
 function Form({ className, children, ...formDomAttrs }: IProps) {
   const cn = cx(style.form, className);
 

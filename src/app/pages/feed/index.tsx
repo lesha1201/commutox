@@ -11,6 +11,7 @@ const { useMemo } = React;
 
 function FeedPage() {
   const { isShown, closeDrawer, toggleDrawer } = useDrawer(false);
+
   // Memoize main content in order to avoid rerender when [isShown] changes
   const mainContent = useMemo(
     () => (

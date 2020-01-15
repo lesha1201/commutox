@@ -3,7 +3,8 @@ import * as React from 'react';
 
 import style from './avatar.scss';
 
-/* Typings */
+/* -- Types */
+
 export interface IProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Source to an image */
   src: string;
@@ -16,7 +17,8 @@ export interface IProps extends React.HTMLAttributes<HTMLDivElement> {
   isOnline?: boolean;
 }
 
-/* Component */
+/* -- Main */
+
 function Avatar({ src, showStatus, className, isOnline, ...domAttrs }: IProps) {
   const cn = cx(
     className,

@@ -12,12 +12,14 @@ function someApiCall(data: any) {
   });
 }
 
-/* Types */
+/* -- Types */
+
 interface IProps extends RouteComponentProps {
   children?: never;
 }
 
-/* Comonent */
+/* -- Component */
+
 class SignUpForm extends React.Component<IProps, {}> {
   initState = {
     email: '',

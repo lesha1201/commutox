@@ -4,7 +4,7 @@ import * as React from 'react';
 import { OverwritableType } from 'app/types/common';
 import style from './button.scss';
 
-/* Typings */
+/* -- Types */
 
 export interface IProps<T> {
   /** Element type (React component or string) that will be used */
@@ -16,7 +16,7 @@ export interface IProps<T> {
   children?: React.ReactNode;
 }
 
-/* Component */
+/* -- Main */
 
 function Button<T extends React.ReactType = 'button'>({
   children,

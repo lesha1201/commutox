@@ -5,6 +5,8 @@ import styles from './drawer.scss';
 
 const { useState } = React;
 
+/* -- Hooks */
+
 export function useDrawer(initState: boolean) {
   const [isShown, setIsShown] = useState(initState);
 
@@ -22,13 +24,16 @@ export function useDrawer(initState: boolean) {
   };
 }
 
-/* Typings */
+/* -- Types */
+
 export interface IDrawerProps {
   isShown: boolean;
   close: (...args: any[]) => any;
   children?: React.ReactNode;
   className?: { drawer?: string; scrim?: string };
 }
+
+/* -- Main */
 
 function Drawer({ children, className, close, isShown }: IDrawerProps) {
   const cn = cx(isShown ? styles.visible : styles.hidden, className && className.drawer);

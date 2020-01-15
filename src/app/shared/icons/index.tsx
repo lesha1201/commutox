@@ -9,14 +9,16 @@ import { capitalize } from 'app/shared/utils';
 import css from './icon.scss';
 import * as icons from './icons';
 
-/* Typings */
+/* -- Types */
+
 export interface IIconProps {
   name: string;
   size: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   className?: { wrapper?: string; icon?: string };
 }
 
-/* Component */
+/* -- Main */
+
 function getIconComponent(name: IIconProps['name']): React.ReactType {
   const componentName = (capitalize(name.toLowerCase()) + 'Icon') as keyof typeof icons;
 

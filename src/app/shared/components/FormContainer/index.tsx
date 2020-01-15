@@ -7,7 +7,8 @@ import * as Yup from 'yup';
 
 import { containsAllKeys, debounce, get } from 'app/shared/utils';
 
-/* Typings */
+/* -- Types */
+
 type API = ReturnType<FormContainer['getHelpers']>;
 
 type Changes<S, K extends keyof S> =
@@ -37,6 +38,8 @@ export interface IFormState {
   data: IValues;
   errors: IValues;
 }
+
+/* -- Utils */
 
 /* Yup setup and validation */
 Yup.setLocale({
@@ -78,7 +81,8 @@ async function validateYupSchemaAt(schema: Yup.Schema<IValues>, value: any, at: 
   return error;
 }
 
-/* Component */
+/* -- Main */
+
 class FormContainer extends React.Component<IFormProps, IFormState> {
   /* 🗿 Static properties ------------*/
   static defaultProps = {

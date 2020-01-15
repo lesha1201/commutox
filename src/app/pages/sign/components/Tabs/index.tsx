@@ -4,12 +4,14 @@ import { Link } from 'react-router-dom';
 
 import style from './tabs.scss';
 
-/* Typings */
+/* -- Types */
+
 interface IProps {
   isSignInRoute: boolean;
 }
 
-/* Component */
+/* -- Component */
+
 function Tabs({ isSignInRoute }: IProps) {
   const cnSignIn = cx(isSignInRoute ? style.activeTab : style.tab);
   const cnSignUp = cx(!isSignInRoute ? style.activeTab : style.tab);

@@ -3,7 +3,8 @@ import * as React from 'react';
 
 import style from './input.scss';
 
-/* Typings */
+/* -- Types */
+
 export interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
   width: 'small' | 'medium' | 'large' | 'full';
   className?: string;
@@ -16,7 +17,8 @@ export interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
   children?: never;
 }
 
-/* Component */
+/* -- Main */
+
 class Input extends React.PureComponent<IProps, {}> {
   /* 🗿 Static properties ------------*/
   static defaultProps = {

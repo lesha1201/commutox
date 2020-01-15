@@ -4,13 +4,13 @@ import { Link as RouterLink, LinkProps } from 'react-router-dom';
 
 import style from './link.scss';
 
-/* Typings */
+/* -- Types */
 
 export interface IProps extends LinkProps {
   children?: React.ReactNode;
 }
 
-/* Component */
+/* -- Main */
 
 // TODO: It should implement `as` prop and just add styles
 function Link({ children, className, ...linkProps }: IProps) {

@@ -3,13 +3,15 @@ import * as React from 'react';
 
 import style from '../../form.scss';
 
-/* Typings */
+/* -- Types */
+
 export interface IProps extends React.HTMLAttributes<HTMLDivElement> {
   error?: string;
   children?: React.ReactNode;
 }
 
-/* Component */
+/* -- Main */
+
 function FormField({ children, className, error, ...domAttrs }: IProps) {
   const cn = cx(error ? style.formFieldError : style.formField, className);
   const cnError = cx(style.error);

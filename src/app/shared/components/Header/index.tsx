@@ -6,6 +6,8 @@ import styles from './header.scss';
 
 const { useRef, useState, useEffect } = React;
 
+/* -- Types */
+
 interface IHeaderProps extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactNode;
 }
@@ -14,11 +16,15 @@ interface IWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
 }
 
+/* -- Utils */
+
 function getScrollTop(node: any, ownerDocument = document) {
   return node === ownerDocument.documentElement
     ? ownerDocument.documentElement.scrollTop || ownerDocument.body.scrollTop
     : node.scrollTop;
 }
+
+/* -- Main */
 
 function Header({ children, className, style, ...domAttrs }: IHeaderProps) {
   const headerEl = useRef<HTMLElement>(null);
@@ -78,7 +84,8 @@ function Header({ children, className, style, ...domAttrs }: IHeaderProps) {
 
 Header.Wrapper = HeaderWrapper;
 
-/* Compounds */
+/* -- Compounds */
+
 function HeaderWrapper({ className, children, ...domAttrs }: IWrapperProps) {
   const cn = cx(className, styles.wrapper);
   return (

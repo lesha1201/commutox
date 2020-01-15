@@ -4,14 +4,16 @@ import * as React from 'react';
 import { capitalize } from 'app/shared/utils';
 import style from '../../form.scss';
 
-/* Typings */
+/* -- Types */
+
 export interface IProps extends React.HTMLAttributes<HTMLDivElement> {
   justify?: 'start' | 'center';
   align?: 'start' | 'center';
   children?: React.ReactNode;
 }
 
-/* Component */
+/* -- Main */
+
 function FormGroup({ children, className, justify, align, ...domAttrs }: IProps) {
   const alignName =
     align && (`align${capitalize(align)}` as 'alignCenter' | 'alignStart');

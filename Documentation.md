@@ -98,6 +98,22 @@ Some files that follows the rules:
 
 ### Rules
 
+#### Comments
+
+1. Comments should be concise. Avoid unnecessary comments.
+
+2. To outline certain areas in code use this syntax `/* -- Area name */`
+
+List of frequently used areas:
+
+```
+/* -- Types */
+
+/* -- Utils */
+
+/* -- Main */
+```
+
 #### Function Components
 
 Function component should be declared using keyword `function`. Not using type for a function component give us ability to make props that have default value (`defaultProps`) requirable.
