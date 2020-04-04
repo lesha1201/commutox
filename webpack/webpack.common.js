@@ -53,8 +53,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'src/assets/index.html',
     }),
-    new ForkTsCheckerWebpackPlugin({
-      watch: paths.SRC,
-    }),
+    new ForkTsCheckerWebpackPlugin(),
   ],
 };
