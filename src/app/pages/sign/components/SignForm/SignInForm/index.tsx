@@ -1,6 +1,6 @@
 import { Button, Form, Input, Label, Link } from 'app/shared/ui-kit';
 import * as React from 'react';
-import { RouteComponentProps, withRouter } from 'react-router-dom';
+import { Link as RouterLink, RouteComponentProps, withRouter } from 'react-router-dom';
 import * as Yup from 'yup';
 
 import FormContainer, { IFormProps } from 'app/shared/components/FormContainer';
@@ -36,9 +36,7 @@ class SignInForm extends React.Component<IProps, {}> {
       }
     >
   > = Yup.object().shape({
-    email: Yup.string()
-      .email()
-      .required(),
+    email: Yup.string().email().required(),
     password: Yup.string().required(),
   });
 
@@ -100,7 +98,9 @@ class SignInForm extends React.Component<IProps, {}> {
               </Form.Group>
 
               <Form.Group className={style.formGroup} justify="center">
-                <Link to="/">Forgot password?</Link>
+                <Link as={RouterLink} to="/">
+                  Forgot password?
+                </Link>
               </Form.Group>
             </Form>
           );

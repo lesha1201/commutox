@@ -6,7 +6,7 @@ import style from './button.scss';
 
 /* -- Types */
 
-export interface IProps<T> {
+export interface IButtonBaseProps<T extends React.ElementType> {
   /** Element type (React component or string) that will be used */
   as: T;
   /** Variant */
@@ -16,9 +16,14 @@ export interface IProps<T> {
   children?: React.ReactNode;
 }
 
+export type ButtonProps<T extends React.ElementType = 'button'> = OverwritableType<
+  IButtonBaseProps<T>,
+  T
+>;
+
 /* -- Main */
 
-function Button<T extends React.ReactType = 'button'>({
+function Button<T extends React.ElementType = 'button'>({
   children,
   theme,
   size,
@@ -26,9 +31,9 @@ function Button<T extends React.ReactType = 'button'>({
   className,
   as,
   ...domAttrs
-}: OverwritableType<IProps<T>, T>) {
+}: ButtonProps<T>) {
   const cn = cx(className, style[theme], style[mainColor], size && style[size]);
-  const ElementType: React.ReactType = as;
+  const ElementType: React.ElementType = as;
 
   return (
     <ElementType className={cn} {...domAttrs}>

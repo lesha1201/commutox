@@ -1,26 +1,42 @@
 import cx from 'classnames';
 import * as React from 'react';
-import { Link as RouterLink, LinkProps } from 'react-router-dom';
 
+import { OverwritableType } from 'app/types/common';
 import style from './link.scss';
 
 /* -- Types */
 
-export interface IProps extends LinkProps {
+export interface ILinkBaseProps<T extends React.ElementType = 'a'> {
+  /** Element type (React component or string) that will be used */
+  as: T;
   children?: React.ReactNode;
 }
 
+export type LinkProps<T extends React.ElementType = 'a'> = OverwritableType<
+  ILinkBaseProps<T>,
+  T
+>;
+
 /* -- Main */
 
-// TODO: It should implement `as` prop and just add styles
-function Link({ children, className, ...linkProps }: IProps) {
+function Link<T extends React.ElementType = 'a'>({
+  children,
+  className,
+  as,
+  ...rest
+}: LinkProps<T>) {
   const cn = cx(className, style.link);
+  const ElementType: React.ElementType = as;
 
   return (
-    <RouterLink className={cn} {...linkProps}>
+    <ElementType className={cn} {...rest}>
       {children}
-    </RouterLink>
+    </ElementType>
   );
 }
+
+Link.defaultProps = {
+  as: 'a',
+};
 
 export default Link;

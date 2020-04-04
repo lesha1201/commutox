@@ -9,13 +9,13 @@ export interface IButtonIconProps<T> {
   children?: React.ReactNode;
 }
 
-function ButtonIcon<T extends React.ReactType = 'button'>({
+function ButtonIcon<T extends React.ElementType = 'button'>({
   className,
   as,
   ...domAttrs
 }: OverwritableType<IButtonIconProps<T>, T>) {
   const cn = cx(css.base, className);
-  const ElementType: React.ReactType = as;
+  const ElementType: React.ElementType = as;
 
   return <ElementType className={cn} {...domAttrs} />;
 }

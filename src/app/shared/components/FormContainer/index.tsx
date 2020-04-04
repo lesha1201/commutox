@@ -204,7 +204,7 @@ class FormContainer extends React.Component<IFormProps, IFormState> {
             shouldDebounce = false;
           }
 
-          return newState as (IFormState | null);
+          return newState as IFormState | null;
         }
 
         if (prevState.errors[name]) {

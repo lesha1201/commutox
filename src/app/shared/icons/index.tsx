@@ -19,7 +19,7 @@ export interface IIconProps {
 
 /* -- Main */
 
-function getIconComponent(name: IIconProps['name']): React.ReactType {
+function getIconComponent(name: IIconProps['name']): React.ElementType {
   const componentName = (capitalize(name.toLowerCase()) + 'Icon') as keyof typeof icons;
 
   if (icons[componentName]) {

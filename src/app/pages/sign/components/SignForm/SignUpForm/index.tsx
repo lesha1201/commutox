@@ -40,12 +40,8 @@ class SignUpForm extends React.Component<IProps, {}> {
       }
     >
   > = Yup.object().shape({
-    email: Yup.string()
-      .email()
-      .required(),
-    password: Yup.string()
-      .min(8)
-      .required(),
+    email: Yup.string().email().required(),
+    password: Yup.string().min(8).required(),
     conf_password: Yup.string().required(),
     full_name: Yup.string().required(),
   });
