@@ -8,17 +8,17 @@ const { useRef, useState, useEffect } = React;
 
 /* -- Types */
 
-interface IHeaderProps extends React.HTMLAttributes<HTMLElement> {
+interface HeaderProps extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactNode;
 }
 
-interface IWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
+interface WrapperProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
 }
 
 /* -- Utils */
 
-function getScrollTop(node: any, ownerDocument = document) {
+function getScrollTop(node: Element, ownerDocument = document) {
   return node === ownerDocument.documentElement
     ? ownerDocument.documentElement.scrollTop || ownerDocument.body.scrollTop
     : node.scrollTop;
@@ -26,7 +26,7 @@ function getScrollTop(node: any, ownerDocument = document) {
 
 /* -- Main */
 
-function Header({ children, className, style, ...domAttrs }: IHeaderProps) {
+function Header({ children, className, style, ...domAttrs }: HeaderProps) {
   const headerEl = useRef<HTMLElement>(null);
   const [tranlateY, setTranlateY] = useState(0);
   useEffect(() => {
@@ -67,7 +67,7 @@ function Header({ children, className, style, ...domAttrs }: IHeaderProps) {
     return () => {
       targetForListener.removeEventListener('scroll', onScroll);
     };
-  }, [headerEl]);
+  }, []);
 
   const cn = cx(className, styles.header);
   const newStyle = {
@@ -86,7 +86,7 @@ Header.Wrapper = HeaderWrapper;
 
 /* -- Compounds */
 
-function HeaderWrapper({ className, children, ...domAttrs }: IWrapperProps) {
+function HeaderWrapper({ className, children, ...domAttrs }: WrapperProps) {
   const cn = cx(className, styles.wrapper);
   return (
     <div {...domAttrs} className={cn}>

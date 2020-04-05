@@ -18,5 +18,3 @@ exports[`<Icon /> should render icon properly 1`] = `
   </svg>
 </span>
 `;
-
-exports[`<Icon /> should throw error when [name] is invalid 1`] = `[Error: Icon name is invalid.]`;

@@ -6,7 +6,7 @@ import style from './button.scss';
 
 /* -- Types */
 
-export interface IButtonBaseProps<T extends React.ElementType> {
+export interface ButtonBaseProps<T extends React.ElementType> {
   /** Element type (React component or string) that will be used */
   as: T;
   /** Variant */
@@ -17,7 +17,7 @@ export interface IButtonBaseProps<T extends React.ElementType> {
 }
 
 export type ButtonProps<T extends React.ElementType = 'button'> = OverwritableType<
-  IButtonBaseProps<T>,
+  ButtonBaseProps<T>,
   T
 >;
 

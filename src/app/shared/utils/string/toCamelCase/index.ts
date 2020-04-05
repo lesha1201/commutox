@@ -1,4 +1,4 @@
-import { capitalize } from '../index';
+import capitalize from '../capitalize';
 
 /**
  * Converts to camel case
@@ -8,12 +8,12 @@ import { capitalize } from '../index';
 function toCamelCase(str: string) {
   let isFirstWordSkipped = false;
 
-  return str.split(/([^a-zA-Z]+)/).reduce((acc, chunk) => {
-    if (/[^a-zA-Z\d$]+/.test(chunk)) {
+  return str.split(/([^A-Za-z]+)/).reduce((acc, chunk) => {
+    if (/[^\d$A-Za-z]+/.test(chunk)) {
       return acc;
     }
 
-    if (!isFirstWordSkipped && /[a-zA-Z]+/.test(chunk)) {
+    if (!isFirstWordSkipped && /[A-Za-z]+/.test(chunk)) {
       isFirstWordSkipped = true;
       return acc + chunk;
     }

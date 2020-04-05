@@ -1,0 +1,10 @@
+node_modules
+esm
+umd
+dist
+build
+serverless-dist
+__generated__
+storybook-static
+coverage
+*.scss.d.ts

@@ -1,4 +1,4 @@
-import { isElement } from '../index';
+import { isElement } from '..';
 
 describe('isElement util', () => {
   document.body.innerHTML = '<div></div>';

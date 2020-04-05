@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-interface IProps extends React.SVGAttributes<SVGElement> {}
+interface LogoProps extends React.SVGAttributes<SVGElement> {}
 
-function Logo(props: IProps) {
+function Logo(props: LogoProps) {
   return (
     <svg data-name="CommutoX" viewBox="0 0 370.51 61.684" width="100%" {...props}>
       <text

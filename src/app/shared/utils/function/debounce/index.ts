@@ -6,14 +6,14 @@
  * @returns {Function} Returns the new debounced function
  */
 function debounce(fn: (...args: any[]) => void, wait: number) {
-  let timerId: any;
+  let timerId: number;
 
-  return function debounced(this: any, ...args: any) {
+  return function debounced(this: any, ...args: any[]) {
     if (timerId) {
-      clearTimeout(timerId);
+      window.clearTimeout(timerId);
     }
 
-    timerId = setTimeout(fn.bind(this, ...args), wait);
+    timerId = window.setTimeout(fn.bind(this, ...args), wait);
   };
 }
 

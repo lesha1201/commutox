@@ -41,7 +41,7 @@ module.exports = {
           minChunks: 2,
         },
         vendors: {
-          test: /[\\/]node_modules[\\/]/,
+          test: /[/\\]node_modules[/\\]/,
           chunks: 'all',
           priority: -10,
         },

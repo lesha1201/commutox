@@ -9,5 +9,3 @@ export * from './ButtonIcon';
 export * from './Counter';
 export * from './Drawer';
 export * from './FormContainer';
-export * from './Header';
-export * from './Logo';

@@ -11,13 +11,13 @@ import style from './form.scss';
 
 /* -- Types */
 
-export interface IProps extends React.FormHTMLAttributes<HTMLFormElement> {
+export interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
   children?: React.ReactNode;
 }
 
 /* -- Main */
 
-function Form({ className, children, ...formDomAttrs }: IProps) {
+function Form({ className, children, ...formDomAttrs }: FormProps) {
   const cn = cx(style.form, className);
 
   return (

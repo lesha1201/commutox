@@ -1,4 +1,4 @@
-import { equalToOr } from '../index';
+import { equalToOr } from '..';
 
 describe('equalToOr util', () => {
   it('should work with primitives', () => {

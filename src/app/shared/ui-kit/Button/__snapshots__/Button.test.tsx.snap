@@ -9,6 +9,15 @@ exports[`<Button /> as prop should be an anchor tag if as="a" 1`] = `
 </a>
 `;
 
+exports[`<Button /> as prop should be an instance of component if as={Component} 1`] = `
+<div
+  class="painted primary"
+  data-testid="mock-component"
+>
+  Mock Component
+</div>
+`;
+
 exports[`<Button /> colors with color "danger" 1`] = `
 <button
   class="painted danger"

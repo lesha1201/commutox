@@ -3,5 +3,7 @@ describe('Sign up page (/sign-up)', () => {
     cy.visit('/sign-up');
   });
 
-  it('should sign up a new user and redirect to feed page', () => {});
+  it('should sign up a new user and redirect to feed page', () => {
+    // do nothing
+  });
 });

@@ -5,7 +5,7 @@ import style from './input.scss';
 
 /* -- Types */
 
-export interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   width: 'small' | 'medium' | 'large' | 'full';
   className?: string;
   /** Adds an addon block before input */
@@ -19,7 +19,7 @@ export interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
 
 /* -- Main */
 
-class Input extends React.PureComponent<IProps, {}> {
+class Input extends React.PureComponent<InputProps, {}> {
   /* 🗿 Static properties ------------*/
   static defaultProps = {
     type: 'text',

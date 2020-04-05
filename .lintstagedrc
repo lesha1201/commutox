@@ -1,11 +1,9 @@
 {
-  "**/!(*.d).{ts,tsx}": [
-    "tslint"
-  ],
   "**/!(*.?(s)css.d).+(js|jsx|ts|tsx|json|yaml|yml|css|sass|scss|md|mdx|graphql)": [
-    "prettier --write"
+    "npm run prettier:format"
   ],
   "*.{ts,tsx,js,jsx}": [
+    "npm run lint",
     "npm run test -- --ci --findRelatedTests"
   ]
 }

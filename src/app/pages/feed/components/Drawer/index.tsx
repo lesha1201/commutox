@@ -3,7 +3,10 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 
 import { ButtonIcon, Counter } from 'app/shared/components';
-import MainDrawer, { IDrawerProps, useDrawer } from 'app/shared/components/Drawer';
+import MainDrawer, {
+  DrawerProps as MainDrawerProps,
+  useDrawer,
+} from 'app/shared/components/Drawer';
 import Icon from 'app/shared/icons';
 import { Avatar } from 'app/shared/ui-kit';
 
@@ -18,11 +21,11 @@ const iconCn = {
   wrapper: css.navItemIcon,
 };
 
-interface IProps extends IDrawerProps {}
+interface DrawerProps extends MainDrawerProps {}
 
-function Drawer({ isShown, close }: IProps) {
+function Drawer({ isShown, onClose }: DrawerProps) {
   return (
-    <MainDrawer className={drawerCn} isShown={isShown} close={close}>
+    <MainDrawer className={drawerCn} isShown={isShown} onClose={onClose}>
       <div className={css.header}>
         <ButtonIcon>
           <Icon name="logout" />

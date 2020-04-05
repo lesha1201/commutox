@@ -2,7 +2,6 @@ import * as React from 'react';
 
 import { ButtonIcon, Header, Logo } from 'app/shared/components';
 import Icon from 'app/shared/icons';
-
 import Drawer, { useDrawer } from './components/Drawer';
 import MessageCard from './components/MessageCard';
 import css from './feed.scss';
@@ -48,12 +47,12 @@ function FeedPage() {
         </Header.Wrapper>
       </>
     ),
-    [],
+    [toggleDrawer],
   );
 
   return (
     <>
-      <Drawer isShown={isShown} close={closeDrawer} />
+      <Drawer isShown={isShown} onClose={closeDrawer} />
       {mainContent}
     </>
   );

@@ -1,7 +1,7 @@
 import { lazy } from 'react';
 import { RouteProps } from 'react-router-dom';
 
-const SignPage = lazy(() => import('app/pages/sign'));
+const SignPage = lazy(() => import(/* webpackChunkName: "sign" */ 'app/pages/sign'));
 
 const signRoute: RouteProps = {
   exact: true,

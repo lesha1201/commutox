@@ -11,7 +11,7 @@ import * as icons from './icons';
 
 /* -- Types */
 
-export interface IIconProps {
+export interface IconProps {
   name: string;
   size: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   className?: { wrapper?: string; icon?: string };
@@ -19,17 +19,19 @@ export interface IIconProps {
 
 /* -- Main */
 
-function getIconComponent(name: IIconProps['name']): React.ElementType {
+function getIconComponent(name: IconProps['name']): React.ElementType {
   const componentName = (capitalize(name.toLowerCase()) + 'Icon') as keyof typeof icons;
 
+  // eslint-disable-next-line import/namespace
   if (icons[componentName]) {
+    // eslint-disable-next-line import/namespace
     return icons[componentName];
   } else {
     throw new Error('Icon name is invalid.');
   }
 }
 
-function Icon({ name, size, className }: IIconProps) {
+function Icon({ name, size, className }: IconProps) {
   const IconComponent = getIconComponent(name);
   const cn = cx(className && className.wrapper, css[size]);
   const cnIcon = cx(className && className.icon) || undefined;

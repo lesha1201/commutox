@@ -5,7 +5,7 @@ import style from './avatar.scss';
 
 /* -- Types */
 
-export interface IProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface AvatarProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Source to an image */
   src: string;
   /** Determines to show onine status or not */
@@ -19,7 +19,7 @@ export interface IProps extends React.HTMLAttributes<HTMLDivElement> {
 
 /* -- Main */
 
-function Avatar({ src, showStatus, className, isOnline, ...domAttrs }: IProps) {
+function Avatar({ src, showStatus, className, isOnline, ...domAttrs }: AvatarProps) {
   const cn = cx(
     className,
     style.circle,

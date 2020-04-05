@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import * as React from 'react';
 
-import Icon from '../';
+import Icon from '..';
 
 describe('<Icon />', () => {
   it('should render icon properly', () => {
@@ -11,10 +11,8 @@ describe('<Icon />', () => {
   });
 
   it('should throw error when [name] is invalid', () => {
-    try {
+    expect(() => {
       render(<Icon name="non-exist-icon" />);
-    } catch (error) {
-      expect(error).toMatchSnapshot();
-    }
+    }).toThrowErrorMatchingInlineSnapshot(`"Icon name is invalid."`);
   });
 });

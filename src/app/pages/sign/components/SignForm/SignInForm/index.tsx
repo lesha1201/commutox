@@ -1,12 +1,12 @@
-import { Button, Form, Input, Label, Link } from 'app/shared/ui-kit';
 import * as React from 'react';
 import { Link as RouterLink, RouteComponentProps, withRouter } from 'react-router-dom';
 import * as Yup from 'yup';
 
-import FormContainer, { IFormProps } from 'app/shared/components/FormContainer';
+import { Button, Form, Input, Label, Link } from 'app/shared/ui-kit';
+import FormContainer, { FormProps } from 'app/shared/components/FormContainer';
 import style from '../sign-form.scss';
 
-function someApiCall(data: any) {
+function someApiCall(_data: unknown) {
   return new Promise((resolve, reject) => {
     resolve({ email: 'Hello', password: 'World' });
   });
@@ -14,13 +14,13 @@ function someApiCall(data: any) {
 
 /* -- Types */
 
-interface IProps extends RouteComponentProps {
+interface SignInFormProps extends RouteComponentProps {
   children?: never;
 }
 
 /* -- Component */
 
-class SignInForm extends React.Component<IProps, {}> {
+class SignInForm extends React.Component<SignInFormProps, {}> {
   initState = {
     email: '',
     password: '',
@@ -40,7 +40,7 @@ class SignInForm extends React.Component<IProps, {}> {
     password: Yup.string().required(),
   });
 
-  onSubmit: IFormProps['onSubmit'] = (data, setFormState) => {
+  onSubmit: FormProps['onSubmit'] = (data, setFormState) => {
     someApiCall(data)
       .then(() => {
         this.props.history.push('/');

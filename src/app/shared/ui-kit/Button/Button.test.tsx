@@ -71,12 +71,15 @@ describe('<Button />', () => {
 
     it('should be an instance of component if as={Component}', () => {
       const testId = 'mock-component';
+      const buttonText = 'Mock Component';
+
       const MockComponent = (props: React.HTMLAttributes<HTMLDivElement>) => (
         <div data-testid={testId} {...props} />
       );
-      const { getByTestId } = render(<Button as={MockComponent}>Mock Component</Button>);
 
-      expect(getByTestId(testId));
+      const { getByText } = render(<Button as={MockComponent}>{buttonText}</Button>);
+
+      expect(getByText(buttonText)).toMatchSnapshot();
     });
   });
 });

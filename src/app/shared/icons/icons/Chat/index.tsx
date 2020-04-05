@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-interface IProps extends React.SVGAttributes<SVGElement> {}
+interface ChatIconProps extends React.SVGAttributes<SVGElement> {}
 
-function Chat(props: IProps) {
+function ChatIcon(props: ChatIconProps) {
   return (
     <svg width="100%" fill="currentColor" viewBox="0 0 60 55.071" {...props}>
       <path d="M10 23h13a1 1 0 1 0 0-2H10a1 1 0 1 0 0 2zm26 4H10a1 1 0 1 0 0 2h26a1 1 0 1 0 0-2zm0 6H10a1 1 0 1 0 0 2h26a1 1 0 1 0 0-2z" />
@@ -11,4 +11,4 @@ function Chat(props: IProps) {
   );
 }
 
-export default Chat;
+export default ChatIcon;

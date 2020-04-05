@@ -5,7 +5,7 @@ import { Counter } from 'app/shared/components';
 import { Avatar } from 'app/shared/ui-kit';
 import css from './message-card.scss';
 
-interface IProps {
+interface MessageCardProps {
   src: string;
   newMessageCount: number;
   showStatus: boolean;
@@ -23,7 +23,7 @@ function MessageCard({
   showStatus,
   isOnline,
   src,
-}: IProps) {
+}: MessageCardProps) {
   return (
     <Link to="#" className={newMessageCount > 0 ? css.newMessage : css.normal}>
       <Avatar

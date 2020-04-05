@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-interface IProps extends React.SVGAttributes<SVGElement> {}
+interface MenuIconProps extends React.SVGAttributes<SVGElement> {}
 
-function Menu(props: IProps) {
+function MenuIcon(props: MenuIconProps) {
   return (
     <svg width="100%" fill="currentColor" viewBox="0 0 210.87 148.96" {...props}>
       <g transform="translate(0 -40.883)">
@@ -14,4 +14,4 @@ function Menu(props: IProps) {
   );
 }
 
-export default Menu;
+export default MenuIcon;

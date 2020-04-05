@@ -6,13 +6,13 @@ import style from './tabs.scss';
 
 /* -- Types */
 
-interface IProps {
+interface TabsProps {
   isSignInRoute: boolean;
 }
 
 /* -- Component */
 
-function Tabs({ isSignInRoute }: IProps) {
+function Tabs({ isSignInRoute }: TabsProps) {
   const cnSignIn = cx(isSignInRoute ? style.activeTab : style.tab);
   const cnSignUp = cx(!isSignInRoute ? style.activeTab : style.tab);
 

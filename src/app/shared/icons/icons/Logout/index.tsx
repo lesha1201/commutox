@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-interface IProps extends React.SVGAttributes<SVGElement> {}
+interface LogoutIconProps extends React.SVGAttributes<SVGElement> {}
 
-function Logout(props: IProps) {
+function LogoutIcon(props: LogoutIconProps) {
   return (
     <svg width="100%" fill="currentColor" viewBox="-15 -35 462.5 423.13" {...props}>
       <path d="M397.9-35.168H230.28c-27.551 0-50.074 22.824-50.074 50.371v44.516c0 6.898 5.594 12.488 12.492 12.488 6.898 0 12.488-5.59 12.488-12.488V15.203c.035-13.891 11.203-25.191 25.094-25.391H397.9c13.777 0 24.617 11.617 24.617 25.391v322.98c.164 13.691-10.801 24.922-24.492 25.082h-167.74c-13.836-.05-25.039-11.25-25.098-25.082v-43.586c0-6.902-5.59-12.492-12.488-12.492s-12.492 5.59-12.492 12.492v43.586c.074 27.625 22.449 49.996 50.074 50.062h167.62c27.496-.102 49.707-22.484 49.598-49.984V15.201c0-27.547-22.047-50.371-49.598-50.371z" />
@@ -11,4 +11,4 @@ function Logout(props: IProps) {
   );
 }
 
-export default Logout;
+export default LogoutIcon;

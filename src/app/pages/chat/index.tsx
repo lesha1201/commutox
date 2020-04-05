@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-const ChatPage: React.FC<{}> = props => {
+function ChatPage() {
   return <div>Chat</div>;
-};
+}
 
 export default ChatPage;

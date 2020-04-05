@@ -1,12 +1,12 @@
-import { Button, Form, Input, Label } from 'app/shared/ui-kit';
 import * as React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import * as Yup from 'yup';
 
-import FormContainer, { IFormProps } from 'app/shared/components/FormContainer';
+import { Button, Form, Input, Label } from 'app/shared/ui-kit';
+import FormContainer, { FormProps } from 'app/shared/components/FormContainer';
 import style from '../sign-form.scss';
 
-function someApiCall(data: any) {
+function someApiCall(data: unknown) {
   return new Promise((resolve, reject) => {
     resolve({ email: 'Hello', password: 'World' });
   });
@@ -14,18 +14,18 @@ function someApiCall(data: any) {
 
 /* -- Types */
 
-interface IProps extends RouteComponentProps {
+interface SignUpFormProps extends RouteComponentProps {
   children?: never;
 }
 
 /* -- Component */
 
-class SignUpForm extends React.Component<IProps, {}> {
+class SignUpForm extends React.Component<SignUpFormProps, {}> {
   initState = {
     email: '',
     password: '',
-    conf_password: '',
-    full_name: '',
+    passwordConfirm: '',
+    fullName: '',
   };
 
   // TODO: for some reason I need to specify type explicitly
@@ -35,18 +35,18 @@ class SignUpForm extends React.Component<IProps, {}> {
       {
         email: string;
         password: string;
-        conf_password: string;
-        full_name: string;
+        passwordConfirm: string;
+        fullName: string;
       }
     >
   > = Yup.object().shape({
     email: Yup.string().email().required(),
     password: Yup.string().min(8).required(),
-    conf_password: Yup.string().required(),
-    full_name: Yup.string().required(),
+    passwordConfirm: Yup.string().required(),
+    fullName: Yup.string().required(),
   });
 
-  onSubmit: IFormProps['onSubmit'] = (data, setFormState) => {
+  onSubmit: FormProps['onSubmit'] = (data, setFormState) => {
     someApiCall(data)
       .then(() => {
         this.props.history.push('/');
@@ -84,15 +84,15 @@ class SignUpForm extends React.Component<IProps, {}> {
               </Form.Group>
 
               <Form.Group className={style.formGroup}>
-                <Form.Field error={errors.full_name}>
-                  <Label htmlFor="full_name">Full name</Label>
+                <Form.Field error={errors.fullName}>
+                  <Label htmlFor="fullName">Full name</Label>
                   <Input
-                    hasError={!!errors.full_name}
+                    hasError={!!errors.fullName}
                     onChange={onChange}
-                    value={data.full_name}
-                    type="full_name"
-                    name="full_name"
-                    id="full_name"
+                    value={data.fullName}
+                    type="fullName"
+                    name="fullName"
+                    id="fullName"
                     placeholder="Full name"
                   />
                 </Form.Field>
@@ -114,15 +114,15 @@ class SignUpForm extends React.Component<IProps, {}> {
               </Form.Group>
 
               <Form.Group className={style.formGroup}>
-                <Form.Field error={errors.conf_password}>
-                  <Label htmlFor="conf_password">Confirm password</Label>
+                <Form.Field error={errors.passwordConfirm}>
+                  <Label htmlFor="passwordConfirm">Confirm password</Label>
                   <Input
-                    hasError={!!errors.conf_password}
+                    hasError={!!errors.passwordConfirm}
                     onChange={onChange}
-                    value={data.conf_password}
+                    value={data.passwordConfirm}
                     type="password"
-                    name="conf_password"
-                    id="conf_password"
+                    name="passwordConfirm"
+                    id="passwordConfirm"
                     placeholder="Password"
                   />
                 </Form.Field>
@@ -143,8 +143,8 @@ class SignUpForm extends React.Component<IProps, {}> {
   private validateForm(data: FormContainer['state']['data']) {
     const errors: typeof data = {};
 
-    if (data.password !== data.conf_password) {
-      errors.conf_password = 'Does not match password';
+    if (data.password !== data.passwordConfirm) {
+      errors.passwordConfirm = 'Does not match password';
     }
 
     return errors;

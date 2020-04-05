@@ -6,14 +6,14 @@ import style from './link.scss';
 
 /* -- Types */
 
-export interface ILinkBaseProps<T extends React.ElementType = 'a'> {
+export interface LinkBaseProps<T extends React.ElementType = 'a'> {
   /** Element type (React component or string) that will be used */
   as: T;
   children?: React.ReactNode;
 }
 
 export type LinkProps<T extends React.ElementType = 'a'> = OverwritableType<
-  ILinkBaseProps<T>,
+  LinkBaseProps<T>,
   T
 >;
 

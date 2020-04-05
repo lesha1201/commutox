@@ -15,7 +15,7 @@ function containsAllKeys(target: object, obj: object) {
   }
 
   for (const key of keys) {
-    if (!target.hasOwnProperty(key)) {
+    if (!Object.prototype.hasOwnProperty.call(target, key)) {
       return false;
     }
   }

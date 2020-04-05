@@ -6,7 +6,7 @@ import style from '../../form.scss';
 
 /* -- Types */
 
-export interface IProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface FormGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   justify?: 'start' | 'center';
   align?: 'start' | 'center';
   children?: React.ReactNode;
@@ -14,7 +14,7 @@ export interface IProps extends React.HTMLAttributes<HTMLDivElement> {
 
 /* -- Main */
 
-function FormGroup({ children, className, justify, align, ...domAttrs }: IProps) {
+function FormGroup({ children, className, justify, align, ...domAttrs }: FormGroupProps) {
   const alignName =
     align && (`align${capitalize(align)}` as 'alignCenter' | 'alignStart');
 

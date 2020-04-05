@@ -5,14 +5,14 @@ import style from '../../form.scss';
 
 /* -- Types */
 
-export interface IProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface FormFieldProps extends React.HTMLAttributes<HTMLDivElement> {
   error?: string;
   children?: React.ReactNode;
 }
 
 /* -- Main */
 
-function FormField({ children, className, error, ...domAttrs }: IProps) {
+function FormField({ children, className, error, ...domAttrs }: FormFieldProps) {
   const cn = cx(error ? style.formFieldError : style.formField, className);
   const cnError = cx(style.error);
 

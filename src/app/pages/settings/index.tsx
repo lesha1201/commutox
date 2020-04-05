@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-const SettingsPage: React.FC<{}> = props => {
+function SettingsPage() {
   return <div>Settings</div>;
-};
+}
 
 export default SettingsPage;

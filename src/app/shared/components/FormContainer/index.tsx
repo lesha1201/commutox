@@ -4,6 +4,7 @@
 
 import * as React from 'react';
 import * as Yup from 'yup';
+import { PromiseType } from 'utility-types';
 
 import { containsAllKeys, debounce, get } from 'app/shared/utils';
 
@@ -15,28 +16,28 @@ type Changes<S, K extends keyof S> =
   | ((state: Readonly<S>) => Pick<S, K> | S | null)
   | (Pick<S, K> | S | null);
 
-interface IValues {
+interface FormValues {
   [field: string]: string;
 }
 
-export interface IFormProps {
-  readonly initData: IValues;
+export interface FormProps {
+  readonly initData: FormValues;
   validationWait: number; // has default value
   validateOn: 'all' | 'submit' | 'change'; // has default value
   children: (api: API) => React.ReactNode;
-  onSubmit: (data: IValues, setFormState: FormContainer['setFormState']) => void;
-  validate?: (data: IValues) => IValues;
-  validationSchema?: Yup.Schema<IValues>;
+  onSubmit: (data: FormValues, setFormState: FormContainer['setFormState']) => void;
+  validate?: (data: FormValues) => FormValues;
+  validationSchema?: Yup.Schema<FormValues>;
   setStateOnChange?: (
     name: string,
     value: string,
-    prevState: IFormState,
-  ) => Partial<IFormState> | null;
+    prevState: FormState,
+  ) => Partial<FormState> | null;
 }
 
-export interface IFormState {
-  data: IValues;
-  errors: IValues;
+export interface FormState {
+  data: FormValues;
+  errors: FormValues;
 }
 
 /* -- Utils */
@@ -53,12 +54,16 @@ Yup.setLocale({
   },
 });
 
-async function validateYupSchema(schema: Yup.Schema<IValues>, data: IValues) {
-  const errors: any = {};
+async function validateYupSchema(schema: Yup.Schema<FormValues>, data: FormValues) {
+  const errors: Record<string, string> = {};
 
   try {
     await schema.validate(data, { abortEarly: false });
   } catch (yupErrors) {
+    if (!(yupErrors instanceof Yup.ValidationError)) {
+      return errors;
+    }
+
     for (const err of yupErrors.inner) {
       if (err.path) {
         errors[err.path] = err.message;
@@ -69,8 +74,12 @@ async function validateYupSchema(schema: Yup.Schema<IValues>, data: IValues) {
   return errors;
 }
 
-async function validateYupSchemaAt(schema: Yup.Schema<IValues>, value: any, at: string) {
-  let error: string = '';
+async function validateYupSchemaAt(
+  schema: Yup.Schema<FormValues>,
+  value: FormValues,
+  at: string,
+) {
+  let error = '';
 
   try {
     await schema.validateAt(at, value);
@@ -83,7 +92,7 @@ async function validateYupSchemaAt(schema: Yup.Schema<IValues>, value: any, at: 
 
 /* -- Main */
 
-class FormContainer extends React.Component<IFormProps, IFormState> {
+class FormContainer extends React.Component<FormProps, FormState> {
   /* 🗿 Static properties ------------*/
   static defaultProps = {
     validationWait: 0,
@@ -96,7 +105,7 @@ class FormContainer extends React.Component<IFormProps, IFormState> {
   isValidateChange: boolean;
 
   /* ♻️ Lifecycle -------------------*/
-  constructor(props: IFormProps) {
+  constructor(props: FormProps) {
     super(props);
 
     this.state = {
@@ -173,7 +182,7 @@ class FormContainer extends React.Component<IFormProps, IFormState> {
       return;
     }
 
-    let schemaErrors = {};
+    let schemaErrors: PromiseType<ReturnType<typeof validateYupSchema>> = {};
 
     if (this.props.validationSchema) {
       schemaErrors = await validateYupSchema(
@@ -204,7 +213,7 @@ class FormContainer extends React.Component<IFormProps, IFormState> {
             shouldDebounce = false;
           }
 
-          return newState as IFormState | null;
+          return { ...prevState, ...newState };
         }
 
         if (prevState.errors[name]) {
@@ -212,11 +221,12 @@ class FormContainer extends React.Component<IFormProps, IFormState> {
         }
 
         return {
+          ...prevState,
           data: {
             ...prevState.data,
             [name]: value,
           },
-        } as IFormState;
+        };
       },
       () =>
         shouldDebounce
@@ -237,8 +247,8 @@ class FormContainer extends React.Component<IFormProps, IFormState> {
     }
   };
 
-  private setFormState = <K extends keyof IFormState>(
-    changes: Changes<IFormState, K>,
+  private setFormState = <K extends keyof FormState>(
+    changes: Changes<FormState, K>,
     callback?: () => void,
   ) => {
     this.setState(state => {
