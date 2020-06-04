@@ -27,7 +27,7 @@ export interface FormProps {
   children: (api: API) => React.ReactNode;
   onSubmit: (data: FormValues, setFormState: FormContainer['setFormState']) => void;
   validate?: (data: FormValues) => FormValues;
-  validationSchema?: Yup.Schema<FormValues>;
+  validationSchema?: Yup.ObjectSchema<FormValues | undefined>;
   setStateOnChange?: (
     name: string,
     value: string,
@@ -54,7 +54,10 @@ Yup.setLocale({
   },
 });
 
-async function validateYupSchema(schema: Yup.Schema<FormValues>, data: FormValues) {
+async function validateYupSchema(
+  schema: Yup.Schema<FormValues | undefined>,
+  data: FormValues,
+) {
   const errors: Record<string, string> = {};
 
   try {
@@ -75,7 +78,7 @@ async function validateYupSchema(schema: Yup.Schema<FormValues>, data: FormValue
 }
 
 async function validateYupSchemaAt(
-  schema: Yup.Schema<FormValues>,
+  schema: Yup.Schema<FormValues | undefined>,
   value: FormValues,
   at: string,
 ) {

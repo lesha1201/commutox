@@ -14,32 +14,28 @@ function someApiCall(data: unknown) {
 
 /* -- Types */
 
+type SignUpFormValues = {
+  email: string;
+  password: string;
+  passwordConfirm: string;
+  fullName: string;
+};
+
 interface SignUpFormProps extends RouteComponentProps {
   children?: never;
 }
 
 /* -- Component */
 
-class SignUpForm extends React.Component<SignUpFormProps, {}> {
-  initState = {
+class SignUpForm extends React.Component<SignUpFormProps> {
+  initFormState: SignUpFormValues = {
     email: '',
     password: '',
     passwordConfirm: '',
     fullName: '',
   };
 
-  // TODO: for some reason I need to specify type explicitly
-  validationSchema: Yup.ObjectSchema<
-    Yup.Shape<
-      object,
-      {
-        email: string;
-        password: string;
-        passwordConfirm: string;
-        fullName: string;
-      }
-    >
-  > = Yup.object().shape({
+  validationSchema = Yup.object().shape({
     email: Yup.string().email().required(),
     password: Yup.string().min(8).required(),
     passwordConfirm: Yup.string().required(),
@@ -59,7 +55,7 @@ class SignUpForm extends React.Component<SignUpFormProps, {}> {
   render() {
     return (
       <FormContainer
-        initData={this.initState}
+        initData={this.initFormState}
         onSubmit={this.onSubmit}
         validate={this.validateForm}
         validationSchema={this.validationSchema}

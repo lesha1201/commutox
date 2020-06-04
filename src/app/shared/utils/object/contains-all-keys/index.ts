@@ -7,7 +7,7 @@
  * @param obj - The input object
  * @returns True if the target object contains all keys presented in the input object
  */
-function containsAllKeys(target: object, obj: object) {
+function containsAllKeys(target: Record<any, unknown>, obj: Record<any, unknown>) {
   const keys = Object.keys(obj);
 
   if (keys.length === 0) {

@@ -89,6 +89,13 @@ module.exports = {
             ignoreRestSiblings: true,
           },
         ],
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
+        '@typescript-eslint/ban-ts-comment': [
+          'error',
+          {
+            'ts-ignore': 'allow-with-description',
+          },
+        ],
       },
     },
     // NodeJS files

@@ -6,7 +6,9 @@ import { SignInForm, SignUpForm } from './components/SignForm';
 import Tabs from './components/Tabs';
 import style from './sign-page.scss';
 
-class SignPage extends React.Component<RouteComponentProps, {}> {
+type SignPageProps = RouteComponentProps;
+
+class SignPage extends React.Component<SignPageProps> {
   /* ♻️ Lifecycle -------------------*/
   render() {
     const isSignInRoute = this.isSignInRoute();
