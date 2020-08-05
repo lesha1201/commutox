@@ -1,11 +1,7 @@
 // This file is generated automatically
-export interface IDrawerScss {
-  'base': string;
-  'hidden': string;
-  'visible': string;
-  'scrim': string;
-  'scrimVisible': string;
-  'scrimHidden': string;
-}
-declare const styles: IDrawerScss;
-export default styles;
+export const base: string;
+export const hidden: string;
+export const visible: string;
+export const scrim: string;
+export const scrimVisible: string;
+export const scrimHidden: string;

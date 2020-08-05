@@ -1,14 +1,10 @@
 // This file is generated automatically
-export interface IFormScss {
-  'form': string;
-  'formGroup': string;
-  'start': string;
-  'center': string;
-  'alignStart': string;
-  'alignCenter': string;
-  'formField': string;
-  'formFieldError': string;
-  'error': string;
-}
-declare const styles: IFormScss;
-export default styles;
+export const form: string;
+export const formGroup: string;
+export const start: string;
+export const center: string;
+export const alignStart: string;
+export const alignCenter: string;
+export const formField: string;
+export const formFieldError: string;
+export const error: string;

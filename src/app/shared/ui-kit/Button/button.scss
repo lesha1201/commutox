@@ -38,6 +38,7 @@
   }
 
   /* Modifiers */
+
   &.full {
     width: 100%;
   }
@@ -48,10 +49,12 @@
 }
 
 /* Themes */
+
 .painted {
   composes: common;
 
   /* Modifiers */
+
   &.primary {
     background-color: $color-primary;
     box-shadow: 0 0.2em 0.4em rgba($color-primary, 0.15);
@@ -120,6 +123,7 @@
   }
 
   /* Modifiers */
+
   &.primary {
     border-color: $color-primary;
     color: $color-primary;

@@ -1,11 +1,7 @@
 // This file is generated automatically
-export interface IAvatarScss {
-  'common': string;
-  'circle': string;
-  'status': string;
-  'online': string;
-  'offline': string;
-  'image': string;
-}
-declare const styles: IAvatarScss;
-export default styles;
+export const common: string;
+export const circle: string;
+export const status: string;
+export const online: string;
+export const offline: string;
+export const image: string;

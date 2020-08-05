@@ -1,11 +1,7 @@
 // This file is generated automatically
-export interface IIconScss {
-  'base': string;
-  'xs': string;
-  'sm': string;
-  'md': string;
-  'lg': string;
-  'xl': string;
-}
-declare const styles: IIconScss;
-export default styles;
+export const base: string;
+export const xs: string;
+export const sm: string;
+export const md: string;
+export const lg: string;
+export const xl: string;

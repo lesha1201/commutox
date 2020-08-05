@@ -5,7 +5,7 @@ process.env.NODE_ENV = 'production';
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const path = require('path');
 const paths = require('./paths');
 const common = require('./webpack.common.js');
@@ -28,15 +28,16 @@ module.exports = merge(common, {
           {
             loader: 'dts-css-modules-loader',
             options: {
-              namedExport: false,
+              namedExport: true,
               banner: '// This file is generated automatically',
             },
           },
           {
             loader: 'css-loader',
             options: {
-              modules: true,
-              localsConvention: 'camelCaseOnly',
+              modules: {
+                exportLocalsConvention: 'camelCaseOnly',
+              },
               importLoaders: 2,
               sourceMap: true,
             },

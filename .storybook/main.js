@@ -1,5 +1,5 @@
 const createCompiler = require('@storybook/addon-docs/mdx-compiler-plugin');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const path = require('path');
 const devWebpackConfig = require('../webpack/webpack.dev');
 const paths = require('../webpack/paths');

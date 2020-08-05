@@ -1,8 +1,4 @@
 // This file is generated automatically
-export interface IMarginScss {
-  'margin': string;
-  'bottom': string;
-  'top': string;
-}
-declare const styles: IMarginScss;
-export default styles;
+export const margin: string;
+export const bottom: string;
+export const top: string;

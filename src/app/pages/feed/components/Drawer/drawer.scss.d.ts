@@ -1,18 +1,14 @@
 // This file is generated automatically
-export interface IDrawerScss {
-  'drawerScrim': string;
-  'drawer': string;
-  'header': string;
-  'avatarWithName': string;
-  'avatar': string;
-  'username': string;
-  'navList': string;
-  'navItem': string;
-  'navItemActive': string;
-  'navItemText': string;
-  'navLink': string;
-  'navItemIcon': string;
-  'navItemCounter': string;
-}
-declare const styles: IDrawerScss;
-export default styles;
+export const drawerScrim: string;
+export const drawer: string;
+export const header: string;
+export const avatarWithName: string;
+export const avatar: string;
+export const username: string;
+export const navList: string;
+export const navItem: string;
+export const navItemActive: string;
+export const navItemText: string;
+export const navLink: string;
+export const navItemIcon: string;
+export const navItemCounter: string;

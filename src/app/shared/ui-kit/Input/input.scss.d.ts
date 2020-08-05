@@ -1,14 +1,10 @@
 // This file is generated automatically
-export interface IInputScss {
-  'inputWrapper': string;
-  'addon': string;
-  'input': string;
-  'small': string;
-  'medium': string;
-  'large': string;
-  'full': string;
-  'withAddons': string;
-  'errorInput': string;
-}
-declare const styles: IInputScss;
-export default styles;
+export const inputWrapper: string;
+export const addon: string;
+export const input: string;
+export const small: string;
+export const medium: string;
+export const large: string;
+export const full: string;
+export const withAddons: string;
+export const errorInput: string;

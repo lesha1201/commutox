@@ -3,7 +3,7 @@ process.env.BABEL_ENV = 'development';
 process.env.NODE_ENV = 'development';
 
 const webpack = require('webpack');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const path = require('path');
 const paths = require('./paths');
 const common = require('./webpack.common.js');
@@ -42,17 +42,18 @@ module.exports = merge(common, {
           {
             loader: 'dts-css-modules-loader',
             options: {
-              namedExport: false,
+              namedExport: true,
               banner: '// This file is generated automatically',
             },
           },
           {
             loader: 'css-loader',
             options: {
+              esModule: true,
               modules: {
                 localIdentName: '[name]__[local]__[hash:base64:5]',
+                exportLocalsConvention: 'camelCaseOnly',
               },
-              localsConvention: 'camelCaseOnly',
               importLoaders: 2,
               sourceMap: true,
             },

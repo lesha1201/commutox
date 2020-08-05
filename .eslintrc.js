@@ -53,6 +53,7 @@ module.exports = {
     'unicorn/prefer-includes': 'error',
     'unicorn/prefer-negative-index': 'error',
     'unicorn/prefer-number-properties': 'error',
+    'react/prop-types': 'off',
   },
   settings: {
     react: {

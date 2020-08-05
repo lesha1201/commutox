@@ -36,7 +36,7 @@ function Drawer({ isShown, onClose }: DrawerProps) {
             className={css.avatar}
             showStatus={true}
             isOnline={Boolean(Math.round(Math.random()))}
-            src="http://www.ehairstyles.org/wp-content/uploads/2016/07/The-Great-Gatsby-Leonardo-DiCaprio-Hairstyle.jpg"
+            src="http://sydelorme.com/wp-content/uploads/2015/11/Julien-2.jpg"
           />
           <span className={css.username}>Name Surname</span>
         </div>
