@@ -1,0 +1,356 @@
+schema {
+  query: RootQueryType
+  mutation: RootMutationType
+  subscription: RootSubscriptionType
+}
+
+input AcceptContactInput {
+  """
+  ID of Contact
+  """
+  id: ID!
+}
+
+type AcceptContactPayload {
+  contact: Contact!
+}
+
+"""
+Either `userId` or `userEmail` is required.
+"""
+input AddContactInput {
+  userEmail: String
+  userId: ID
+}
+
+type AddContactPayload {
+  contact: Contact!
+}
+
+type Chat implements Node {
+  """
+  The ID of an object
+  """
+  id: ID!
+  insertedAt: NaiveDateTime!
+  members(after: String, before: String, first: Int, last: Int): ChatMemberConnection
+  messages(after: String, before: String, first: Int, last: Int): MessageConnection
+  users(after: String, before: String, first: Int, last: Int): UserConnection
+}
+
+type ChatConnection {
+  edges: [ChatEdge]
+  pageInfo: PageInfo!
+}
+
+type ChatEdge {
+  cursor: String
+  node: Chat
+}
+
+type ChatMember implements Node {
+  chat: Chat!
+
+  """
+  The ID of an object
+  """
+  id: ID!
+  insertedAt: NaiveDateTime!
+  lastReadAt: NaiveDateTime
+  user: User!
+}
+
+type ChatMemberConnection {
+  edges: [ChatMemberEdge]
+  pageInfo: PageInfo!
+}
+
+type ChatMemberEdge {
+  cursor: String
+  node: ChatMember
+}
+
+type Contact implements Node {
+  """
+  The ID of an object
+  """
+  id: ID!
+  insertedAt: NaiveDateTime!
+  status: ContactStatus!
+  type: ContactType
+
+  """
+  Second-party user. It's either `userSender` or `userReceiver` depending on which one is the current user.
+  """
+  user: User
+  userReceiver: User!
+  userSender: User!
+}
+
+type ContactConnection {
+  edges: [ContactEdge]
+  pageInfo: PageInfo!
+}
+
+type ContactEdge {
+  cursor: String
+  node: Contact
+}
+
+"""
+Possible contact statuses.
+"""
+enum ContactStatus {
+  """
+  Tells that receiver accepted a request from the sender.
+  """
+  ACCEPTED
+
+  """
+  Tells that sender is pending an answer from the receiver.
+  """
+  PENDING
+
+  """
+  Tells that receiver rejected a request from the sender.
+  """
+  REJECTED
+}
+
+"""
+Possible contact types. Determines whether a user received request for contact or sent it.
+"""
+enum ContactType {
+  """
+  Tells that a user received a request for adding to its contact list.
+  """
+  RECEIVED
+
+  """
+  Tells that a user sent a request for adding to its contact list.
+  """
+  SENT
+}
+
+type Message implements Node {
+  chat: Chat!
+
+  """
+  The ID of an object
+  """
+  id: ID!
+  insertedAt: NaiveDateTime!
+  text: String!
+  user: User!
+}
+
+type MessageConnection {
+  edges: [MessageEdge]
+  pageInfo: PageInfo!
+}
+
+type MessageEdge {
+  cursor: String
+  node: Message
+}
+
+"""
+The `Naive DateTime` scalar type represents a naive date and time without
+timezone. The DateTime appears in a JSON response as an ISO8601 formatted
+string.
+"""
+scalar NaiveDateTime
+
+interface Node {
+  """
+  The id of the object.
+  """
+  id: ID!
+}
+
+type PageInfo {
+  """
+  When paginating forwards, the cursor to continue.
+  """
+  endCursor: String
+
+  """
+  When paginating forwards, are there more items?
+  """
+  hasNextPage: Boolean!
+
+  """
+  When paginating backwards, are there more items?
+  """
+  hasPreviousPage: Boolean!
+
+  """
+  When paginating backwards, the cursor to continue.
+  """
+  startCursor: String
+}
+
+input RejectContactInput {
+  """
+  ID of Contact
+  """
+  id: ID!
+}
+
+type RejectContactPayload {
+  contact: Contact!
+}
+
+input RemoveContactInput {
+  """
+  ID of Contact
+  """
+  id: ID!
+}
+
+type RemoveContactPayload {
+  success: Boolean!
+}
+
+type RootMutationType {
+  """
+  Accepts a contact request for the current user. It can only accept a pending contact.
+  """
+  acceptContact(input: AcceptContactInput!): AcceptContactPayload
+
+  """
+  Adds contact for the current user. If the current user already received a request from the provided user then it
+  updates the contact status to Accepted.
+  """
+  addContact(input: AddContactInput!): AddContactPayload
+
+  """
+  Rejects a contact request for the current user. It can only reject a pending contact.
+  """
+  rejectContact(input: RejectContactInput!): RejectContactPayload
+
+  """
+  Removes contact from the current user's contacts. If a contact is accepted and the current user is receiver then it
+  will update the contact status to `REJECTED`.
+  """
+  removeContact(input: RemoveContactInput!): RemoveContactPayload
+
+  """
+  Sends a message to a user or a chat.
+  """
+  sendMessage(input: SendMessageInput!): SendMessagePayload
+
+  """
+  Signs in a user.
+  """
+  signIn(input: SignInInput!): SignInPayload
+
+  """
+  Signs up a user.
+  """
+  signUp(input: SignUpInput!): SignUpPayload
+}
+
+type RootQueryType {
+  """
+  Gets a list of all chat members current user can see.
+  """
+  chatMembers(after: String, before: String, first: Int, last: Int): ChatMemberConnection
+
+  """
+  Gets a list of all chats current user can see.
+  """
+  chats(after: String, before: String, first: Int, last: Int): ChatConnection
+
+  """
+  Gets a list of current user's contacts
+  """
+  contacts(after: String, before: String, first: Int, last: Int): ContactConnection
+
+  """
+  Gets a list of all messages current user can see.
+  """
+  messages(after: String, before: String, first: Int, last: Int): MessageConnection
+  node(
+    """
+    The id of an object.
+    """
+    id: ID!
+  ): Node
+
+  """
+  Gets a user by email.
+  """
+  user(email: String!): User
+
+  """
+  Gets a list of all users.
+  """
+  users(after: String, before: String, first: Int, last: Int): UserConnection
+}
+
+type RootSubscriptionType {
+  """
+  Subscribes to new messages in the current user's chats.
+  """
+  newMessage: Message!
+}
+
+input SendMessageInput {
+  text: String!
+
+  """
+  ID of Chat or User
+  """
+  to: String!
+}
+
+type SendMessagePayload {
+  message: Message
+}
+
+input SignInInput {
+  email: String!
+  password: String!
+}
+
+type SignInPayload {
+  token: String!
+  user: User!
+}
+
+input SignUpInput {
+  email: String!
+  fullName: String!
+  password: String!
+  passwordConfirmation: String!
+}
+
+type SignUpPayload {
+  token: String!
+  user: User!
+}
+
+type User implements Node {
+  chatMembers(after: String, before: String, first: Int, last: Int): ChatMemberConnection
+  chats(after: String, before: String, first: Int, last: Int): ChatConnection
+  email: String!
+  fullName: String!
+
+  """
+  The ID of an object
+  """
+  id: ID!
+  insertedAt: NaiveDateTime!
+  messages(after: String, before: String, first: Int, last: Int): MessageConnection
+}
+
+type UserConnection {
+  edges: [UserEdge]
+  pageInfo: PageInfo!
+}
+
+type UserEdge {
+  cursor: String
+  node: User
+}

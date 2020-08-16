@@ -3,21 +3,17 @@ import { RouteComponentProps, withRouter } from 'react-router-dom';
 import * as Yup from 'yup';
 
 import { Button, Form, Input, Label } from 'app/shared/ui-kit';
-import FormContainer, { FormProps } from 'app/shared/components/FormContainer';
+import environment from 'app/relay/environment';
+import FormContainer from 'app/shared/components/FormContainer';
+import SignUpMutation from 'app/relay/mutations/SignUpMutation';
 import style from '../sign-form.scss';
-
-function someApiCall(data: unknown) {
-  return new Promise((resolve, reject) => {
-    resolve({ email: 'Hello', password: 'World' });
-  });
-}
 
 /* -- Types */
 
 type SignUpFormValues = {
   email: string;
   password: string;
-  passwordConfirm: string;
+  passwordConfirmation: string;
   fullName: string;
 };
 
@@ -31,25 +27,28 @@ class SignUpForm extends React.Component<SignUpFormProps> {
   initFormState: SignUpFormValues = {
     email: '',
     password: '',
-    passwordConfirm: '',
+    passwordConfirmation: '',
     fullName: '',
   };
 
   validationSchema = Yup.object().shape({
     email: Yup.string().email().required(),
     password: Yup.string().min(8).required(),
-    passwordConfirm: Yup.string().required(),
+    passwordConfirmation: Yup.string().required(),
     fullName: Yup.string().required(),
   });
 
-  onSubmit: FormProps['onSubmit'] = (data, setFormState) => {
-    someApiCall(data)
-      .then(() => {
+  onSubmit = async (data: SignUpFormValues) => {
+    try {
+      const { signUp } = await SignUpMutation.commit(environment, data);
+
+      if (signUp && signUp.user) {
+        // TODO: all route's paths should be in a constant variable
         this.props.history.push('/');
-      })
-      .catch(errors => {
-        setFormState({ errors });
-      });
+      }
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   render() {
@@ -110,15 +109,15 @@ class SignUpForm extends React.Component<SignUpFormProps> {
               </Form.Group>
 
               <Form.Group className={style.formGroup}>
-                <Form.Field error={errors.passwordConfirm}>
-                  <Label htmlFor="passwordConfirm">Confirm password</Label>
+                <Form.Field error={errors.passwordConfirmation}>
+                  <Label htmlFor="passwordConfirmation">Confirm password</Label>
                   <Input
-                    hasError={!!errors.passwordConfirm}
+                    hasError={!!errors.passwordConfirmation}
                     onChange={onChange}
-                    value={data.passwordConfirm}
+                    value={data.passwordConfirmation}
                     type="password"
-                    name="passwordConfirm"
-                    id="passwordConfirm"
+                    name="passwordConfirmation"
+                    id="passwordConfirmation"
                     placeholder="Password"
                   />
                 </Form.Field>
@@ -136,11 +135,11 @@ class SignUpForm extends React.Component<SignUpFormProps> {
     );
   }
 
-  private validateForm(data: FormContainer['state']['data']) {
-    const errors: typeof data = {};
+  private validateForm(data: SignUpFormValues) {
+    const errors: Partial<SignUpFormValues> = {};
 
-    if (data.password !== data.passwordConfirm) {
-      errors.passwordConfirm = 'Does not match password';
+    if (data.password !== data.passwordConfirmation) {
+      errors.passwordConfirmation = 'Does not match password';
     }
 
     return errors;

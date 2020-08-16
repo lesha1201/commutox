@@ -3,14 +3,10 @@ import { Link as RouterLink, RouteComponentProps, withRouter } from 'react-route
 import * as Yup from 'yup';
 
 import { Button, Form, Input, Label, Link } from 'app/shared/ui-kit';
-import FormContainer, { FormProps } from 'app/shared/components/FormContainer';
+import environment from 'app/relay/environment';
+import SignInMutation from 'app/relay/mutations/SignInMutation';
+import FormContainer from 'app/shared/components/FormContainer';
 import style from '../sign-form.scss';
-
-function someApiCall(_data: unknown) {
-  return new Promise((resolve, reject) => {
-    resolve({ email: 'Hello', password: 'World' });
-  });
-}
 
 /* -- Types */
 
@@ -36,14 +32,16 @@ class SignInForm extends React.Component<SignInFormProps> {
     password: Yup.string().required(),
   });
 
-  onSubmit: FormProps['onSubmit'] = (data, setFormState) => {
-    someApiCall(data)
-      .then(() => {
+  onSubmit = async (data: SignInFormValues) => {
+    try {
+      const { signIn } = await SignInMutation.commit(environment, data);
+
+      if (signIn && signIn.user) {
         this.props.history.push('/');
-      })
-      .catch(errors => {
-        setFormState({ errors });
-      });
+      }
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   render() {
@@ -54,7 +52,7 @@ class SignInForm extends React.Component<SignInFormProps> {
         validationSchema={this.validationSchema}
         validateOn="submit"
       >
-        {({ data, errors, onChange, onSubmit }) => {
+        {({ data, errors, onChange, onSubmit, isSubmitting }) => {
           return (
             <Form className={style.signForm} onSubmit={onSubmit}>
               <Form.Group className={style.formGroup}>
@@ -89,7 +87,7 @@ class SignInForm extends React.Component<SignInFormProps> {
 
               <Form.Group className={style.formGroup}>
                 <Button type="submit" className={style.signButton} size="full">
-                  Sign In
+                  {isSubmitting ? 'Signing in...' : 'Sign In'}
                 </Button>
               </Form.Group>
 

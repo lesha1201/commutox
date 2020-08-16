@@ -10,34 +10,44 @@ import { containsAllKeys, debounce, get } from 'app/shared/utils';
 
 /* -- Types */
 
-type API = ReturnType<FormContainer['getHelpers']>;
+type API<TFormValues extends FormValues> = ReturnType<
+  FormContainer<TFormValues>['getHelpers']
+>;
 
 type Changes<S, K extends keyof S> =
   | ((state: Readonly<S>) => Pick<S, K> | S | null)
   | (Pick<S, K> | S | null);
 
-interface FormValues {
-  [field: string]: string;
+export interface FormValues {
+  [field: string]: any;
 }
 
-export interface FormProps {
-  readonly initData: FormValues;
+export type FormErrors<TFormValues extends FormValues> = Partial<
+  Record<keyof TFormValues, string>
+>;
+
+export interface FormProps<TFormValues extends FormValues> {
+  readonly initData: TFormValues;
   validationWait: number; // has default value
   validateOn: 'all' | 'submit' | 'change'; // has default value
-  children: (api: API) => React.ReactNode;
-  onSubmit: (data: FormValues, setFormState: FormContainer['setFormState']) => void;
-  validate?: (data: FormValues) => FormValues;
-  validationSchema?: Yup.ObjectSchema<FormValues | undefined>;
+  children: (api: API<TFormValues>) => React.ReactNode;
+  onSubmit: (
+    data: TFormValues,
+    setFormState: FormContainer<TFormValues>['setFormState'],
+  ) => Promise<any>;
+  validate?: (data: TFormValues) => FormErrors<TFormValues>;
+  validationSchema?: Yup.ObjectSchema<TFormValues | undefined>;
   setStateOnChange?: (
     name: string,
     value: string,
-    prevState: FormState,
-  ) => Partial<FormState> | null;
+    prevState: FormState<TFormValues>,
+  ) => Partial<FormState<TFormValues>> | null;
 }
 
-export interface FormState {
-  data: FormValues;
-  errors: FormValues;
+export interface FormState<TFormValues extends FormValues> {
+  data: TFormValues;
+  errors: FormErrors<TFormValues>;
+  isSubmitting: boolean;
 }
 
 /* -- Utils */
@@ -95,7 +105,10 @@ async function validateYupSchemaAt(
 
 /* -- Main */
 
-class FormContainer extends React.Component<FormProps, FormState> {
+class FormContainer<TFormValues extends FormValues = FormValues> extends React.Component<
+  FormProps<TFormValues>,
+  FormState<TFormValues>
+> {
   /* 🗿 Static properties ------------*/
   static defaultProps = {
     validationWait: 0,
@@ -108,12 +121,13 @@ class FormContainer extends React.Component<FormProps, FormState> {
   isValidateChange: boolean;
 
   /* ♻️ Lifecycle -------------------*/
-  constructor(props: FormProps) {
+  constructor(props: FormProps<TFormValues>) {
     super(props);
 
     this.state = {
       data: props.initData,
       errors: {},
+      isSubmitting: false,
     };
 
     this.isValidateSubmit = /submit|all/i.test(this.props.validateOn);
@@ -163,9 +177,7 @@ class FormContainer extends React.Component<FormProps, FormState> {
     if (this.props.validate) {
       const errors = this.props.validate(this.state.data);
 
-      if (errors[name]) {
-        fieldError = errors[name];
-      }
+      fieldError = errors[name] || '';
     }
 
     if (!fieldError) {
@@ -244,14 +256,22 @@ class FormContainer extends React.Component<FormProps, FormState> {
     const errors = await this.validateOnSubmit();
 
     if (!errors || Object.keys(errors).length === 0) {
-      this.props.onSubmit(this.state.data, this.setFormState);
+      const result = this.props.onSubmit(this.state.data, this.setFormState);
+
+      if (result instanceof Promise) {
+        this.setState({ isSubmitting: true });
+
+        result.finally(() => {
+          this.setState({ isSubmitting: false });
+        });
+      }
     } else {
       this.setState({ errors });
     }
   };
 
-  private setFormState = <K extends keyof FormState>(
-    changes: Changes<FormState, K>,
+  private setFormState = <K extends keyof FormState<TFormValues>>(
+    changes: Changes<FormState<TFormValues>, K>,
     callback?: () => void,
   ) => {
     this.setState(state => {
@@ -266,6 +286,7 @@ class FormContainer extends React.Component<FormProps, FormState> {
     return {
       data: this.state.data,
       errors: this.state.errors,
+      isSubmitting: this.state.isSubmitting,
       onChange: this.onChange,
       onSubmit: this.onSubmit,
       setFormState: this.setFormState,

@@ -13,6 +13,7 @@
     "@babel/preset-typescript"
   ],
   "plugins": [
+    "relay",
     "@babel/plugin-syntax-dynamic-import",
     ["@babel/proposal-class-properties", { "loose": true }],
     "react-hot-loader/babel"
