@@ -42,7 +42,7 @@ class SignUpForm extends React.Component<SignUpFormProps> {
     try {
       const { signUp } = await SignUpMutation.commit(environment, data);
 
-      if (signUp && signUp.user) {
+      if (signUp?.user) {
         // TODO: all route's paths should be in a constant variable
         this.props.history.push('/');
       }

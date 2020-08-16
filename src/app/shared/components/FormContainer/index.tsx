@@ -119,6 +119,7 @@ class FormContainer<TFormValues extends FormValues = FormValues> extends React.C
   debouncedValidateOnChange: FormContainer['validateOnChange'];
   isValidateSubmit: boolean;
   isValidateChange: boolean;
+  mounted: boolean;
 
   /* ♻️ Lifecycle -------------------*/
   constructor(props: FormProps<TFormValues>) {
@@ -130,6 +131,8 @@ class FormContainer<TFormValues extends FormValues = FormValues> extends React.C
       isSubmitting: false,
     };
 
+    this.mounted = false;
+
     this.isValidateSubmit = /submit|all/i.test(this.props.validateOn);
     this.isValidateChange = /change|all/i.test(this.props.validateOn);
 
@@ -137,6 +140,14 @@ class FormContainer<TFormValues extends FormValues = FormValues> extends React.C
       this.props.validationWait > 0
         ? debounce(this.validateOnChange, this.props.validationWait)
         : this.validateOnChange;
+  }
+
+  componentDidMount() {
+    this.mounted = true;
+  }
+
+  componentWillUnmount() {
+    this.mounted = false;
   }
 
   render() {
@@ -262,7 +273,9 @@ class FormContainer<TFormValues extends FormValues = FormValues> extends React.C
         this.setState({ isSubmitting: true });
 
         result.finally(() => {
-          this.setState({ isSubmitting: false });
+          if (this.mounted) {
+            this.setState({ isSubmitting: false });
+          }
         });
       }
     } else {

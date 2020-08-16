@@ -36,7 +36,7 @@ class SignInForm extends React.Component<SignInFormProps> {
     try {
       const { signIn } = await SignInMutation.commit(environment, data);
 
-      if (signIn && signIn.user) {
+      if (signIn?.user) {
         this.props.history.push('/');
       }
     } catch (e) {
