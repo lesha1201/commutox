@@ -2,6 +2,7 @@ import cx from 'classnames';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 
+import { PATH } from 'app/shared/constants';
 import style from './tabs.scss';
 
 /* -- Types */
@@ -18,10 +19,10 @@ function Tabs({ isSignInRoute }: TabsProps) {
 
   return (
     <div className={style.tabs}>
-      <Link to="/sign-in" className={cnSignIn}>
+      <Link to={PATH.signIn} className={cnSignIn}>
         Sign In
       </Link>
-      <Link to="/sign-up" className={cnSignUp}>
+      <Link to={PATH.signUp} className={cnSignUp}>
         Sign Up
       </Link>
     </div>

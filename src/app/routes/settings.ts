@@ -1,13 +1,15 @@
 import { lazy } from 'react';
-import { RouteProps } from 'react-router-dom';
+
+import { PATH } from 'app/shared/constants/routes';
+import { RouteConfig } from './types';
 
 const SettingsPage = lazy(() =>
   import(/* webpackChunkName: "settings" */ 'app/pages/settings'),
 );
 
-const settingsRoute: RouteProps = {
+const settingsRoute: RouteConfig = {
   exact: true,
-  path: '/settings',
+  path: PATH.settings,
   component: SettingsPage,
 };
 

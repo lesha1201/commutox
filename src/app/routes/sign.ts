@@ -1,11 +1,13 @@
 import { lazy } from 'react';
-import { RouteProps } from 'react-router-dom';
+
+import { PATH } from 'app/shared/constants/routes';
+import { RouteConfig } from './types';
 
 const SignPage = lazy(() => import(/* webpackChunkName: "sign" */ 'app/pages/sign'));
 
-const signRoute: RouteProps = {
+const signRoute: RouteConfig = {
   exact: true,
-  path: '/sign-(in|up)',
+  path: [PATH.signIn, PATH.signUp],
   component: SignPage,
 };
 

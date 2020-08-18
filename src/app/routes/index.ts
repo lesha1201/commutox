@@ -1,7 +1,5 @@
-import { chatRoute } from './chat';
-import { feedRoute } from './feed';
-import { notFoundRoute } from './not-found';
-import { settingsRoute } from './settings';
-import { signRoute } from './sign';
-
-export const routes = [feedRoute, chatRoute, settingsRoute, signRoute, notFoundRoute];
+export { chatRoute } from './chat';
+export { feedRoute } from './feed';
+export { settingsRoute } from './settings';
+export { signRoute } from './sign';
+export * from './types';

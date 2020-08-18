@@ -1,11 +1,13 @@
 import { lazy } from 'react';
-import { RouteProps } from 'react-router-dom';
+
+import { PATH } from 'app/shared/constants/routes';
+import { RouteConfig } from './types';
 
 const ChatPage = lazy(() => import(/* webpackChunkName: "chat" */ 'app/pages/chat'));
 
-const chatRoute: RouteProps = {
+const chatRoute: RouteConfig = {
   exact: true,
-  path: '/messages/:id',
+  path: PATH.chat,
   component: ChatPage,
 };
 

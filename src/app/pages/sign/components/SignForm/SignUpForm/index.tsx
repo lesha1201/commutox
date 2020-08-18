@@ -3,8 +3,9 @@ import { RouteComponentProps, withRouter } from 'react-router-dom';
 import * as Yup from 'yup';
 
 import { Button, Form, Input, Label } from 'app/shared/ui-kit';
-import environment from 'app/relay/environment';
+import { PATH } from 'app/shared/constants';
 import FormContainer from 'app/shared/components/FormContainer';
+import environment from 'app/relay/environment';
 import SignUpMutation from 'app/relay/mutations/SignUpMutation';
 import style from '../sign-form.scss';
 
@@ -43,8 +44,7 @@ class SignUpForm extends React.Component<SignUpFormProps> {
       const { signUp } = await SignUpMutation.commit(environment, data);
 
       if (signUp?.user) {
-        // TODO: all route's paths should be in a constant variable
-        this.props.history.push('/');
+        this.props.history.push(PATH.feed);
       }
     } catch (e) {
       console.error(e);

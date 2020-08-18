@@ -2,6 +2,7 @@ import * as React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 
 import Logo from 'app/shared/components/Logo';
+import { PATH } from 'app/shared/constants';
 import { SignInForm, SignUpForm } from './components/SignForm';
 import Tabs from './components/Tabs';
 import style from './sign-page.scss';
@@ -31,7 +32,7 @@ class SignPage extends React.Component<SignPageProps> {
 
   /* 🔒 Private methods -------------*/
   private isSignInRoute() {
-    return this.props.location.pathname.includes('sign-in');
+    return this.props.location.pathname.includes(PATH.signIn);
   }
   /* End of Private methods ---------*/
 }

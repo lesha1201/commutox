@@ -1,11 +1,13 @@
 import { lazy } from 'react';
-import { RouteProps } from 'react-router-dom';
+
+import { PATH } from 'app/shared/constants/routes';
+import { RouteConfig } from './types';
 
 const FeedPage = lazy(() => import(/* webpackChunkName: "feed" */ 'app/pages/feed'));
 
-const feedRoute: RouteProps = {
+const feedRoute: RouteConfig = {
   exact: true,
-  path: '/(messages)?',
+  path: PATH.feed,
   component: FeedPage,
 };
 

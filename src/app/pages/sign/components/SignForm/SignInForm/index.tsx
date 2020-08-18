@@ -6,6 +6,7 @@ import { Button, Form, Input, Label, Link } from 'app/shared/ui-kit';
 import environment from 'app/relay/environment';
 import SignInMutation from 'app/relay/mutations/SignInMutation';
 import FormContainer from 'app/shared/components/FormContainer';
+import { PATH } from 'app/shared/constants';
 import style from '../sign-form.scss';
 
 /* -- Types */
@@ -37,7 +38,7 @@ class SignInForm extends React.Component<SignInFormProps> {
       const { signIn } = await SignInMutation.commit(environment, data);
 
       if (signIn?.user) {
-        this.props.history.push('/');
+        this.props.history.push(PATH.feed);
       }
     } catch (e) {
       console.error(e);

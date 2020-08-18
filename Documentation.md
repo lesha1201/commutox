@@ -3,9 +3,9 @@
 ## Route paths
 
 - `/sign` - Sign page (not-auth)
-- `/(messages)` - Chat feed (auth)
+- `/(chats)` - Chat feed (auth)
 - `/settings` - Settings (auth)
-- `/messages/{id}` - Certain chat (auth)
+- `/chats/{id}` - Certain chat (auth)
 
 ## CSS
 
