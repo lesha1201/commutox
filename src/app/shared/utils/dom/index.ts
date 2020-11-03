@@ -2,7 +2,6 @@
  * Checks if [node] is instanceof Element
  *
  * @param node
- * @param ownerDocument - This param is useful when using iframe, because iframe has its own document
  */
 export function isElement(node: any): node is Element {
   const doc = (node && node.ownerDocument) || document;
@@ -15,7 +14,6 @@ export function isElement(node: any): node is Element {
  * Finds the first scrollable (vertically) parent
  *
  * @param elem - The element to start from
- * @param ownerDocument - This param is useful when using iframe, because iframe has its own document
  */
 export function getScrollParent(elem: Element | null): Element {
   const doc = (elem && elem.ownerDocument) || document;

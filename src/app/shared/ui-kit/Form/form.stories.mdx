@@ -1,4 +1,4 @@
-import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, ArgsTable, Canvas } from '@storybook/addon-docs/blocks';
 
 import { Input, Label, Button } from 'app/shared/ui-kit';
 import Form from './index';
@@ -11,7 +11,7 @@ import Form from './index';
 
 ### Example 1
 
-<Preview withToolbar>
+<Canvas withToolbar>
   <Story name="example 1">
     <div style={{ fontSize: '14px' }}>
       <Form
@@ -38,11 +38,11 @@ import Form from './index';
       </Form>
     </div>
   </Story>
-</Preview>
+</Canvas>
 
 ### Example 2
 
-<Preview withToolbar>
+<Canvas withToolbar>
   <Story name="example 2">
     <div style={{ fontSize: '14px' }}>
       <Form
@@ -97,18 +97,18 @@ import Form from './index';
       </Form>
     </div>
   </Story>
-</Preview>
+</Canvas>
 
 ## Props
 
 ### Form
 
-<Props of={Form} />
+<ArgsTable of={Form} />
 
 ### Group
 
-<Props of={Form.Group} />
+<ArgsTable of={Form.Group} />
 
 ### Field
 
-<Props of={Form.Field} />
+<ArgsTable of={Form.Field} />

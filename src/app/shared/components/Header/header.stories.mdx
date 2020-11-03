@@ -1,4 +1,4 @@
-import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, ArgsTable, Canvas } from '@storybook/addon-docs/blocks';
 
 import Header from './index';
 
@@ -10,9 +10,9 @@ import Header from './index';
 
 ### Default
 
-<Preview withToolbar>
+<Canvas withToolbar>
   <Story name="default" height="200px" inline={false}>
-    <div>
+    <div style={{ margin: '-1rem' }}>
       <Header
         style={{
           display: 'flex',
@@ -38,8 +38,8 @@ import Header from './index';
       </Header.Wrapper>
     </div>
   </Story>
-</Preview>
+</Canvas>
 
 ## Props
 
-<Props of={Header} />
+<ArgsTable of={Header} />

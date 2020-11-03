@@ -1,4 +1,4 @@
-import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, ArgsTable, Canvas } from '@storybook/addon-docs/blocks';
 
 import { Margin } from 'app/shared/storybook-helpers';
 import Input from './index';
@@ -11,17 +11,17 @@ import Input from './index';
 
 ### Default
 
-<Preview withToolbar>
+<Canvas withToolbar>
   <Story name="default">
     <div style={{ fontSize: '14px' }}>
       <Input placeholder="First name" />
     </div>
   </Story>
-</Preview>
+</Canvas>
 
 ### Width modifiers
 
-<Preview withToolbar>
+<Canvas withToolbar>
   <Story name="width modifiers">
     <div style={{ fontSize: '14px' }}>
       <Margin type="bottom">
@@ -38,11 +38,11 @@ import Input from './index';
       </Margin>
     </div>
   </Story>
-</Preview>
+</Canvas>
 
 ### Before/after addons
 
-<Preview withToolbar>
+<Canvas withToolbar>
   <Story name="before/after addons">
     <div style={{ fontSize: '14px' }}>
       <Margin type="bottom">
@@ -56,28 +56,28 @@ import Input from './index';
       </Margin>
     </div>
   </Story>
-</Preview>
+</Canvas>
 
 ### Disabled
 
-<Preview withToolbar>
+<Canvas withToolbar>
   <Story name="sisabled">
     <div style={{ fontSize: '14px' }}>
       <Input placeholder="Disabled" disabled />
     </div>
   </Story>
-</Preview>
+</Canvas>
 
 ### Error
 
-<Preview withToolbar>
+<Canvas withToolbar>
   <Story name="error">
     <div style={{ fontSize: '14px' }}>
       <Input placeholder="Error" hasError />
     </div>
   </Story>
-</Preview>
+</Canvas>
 
 ## Props
 
-<Props of={Input} />
+<ArgsTable of={Input} />

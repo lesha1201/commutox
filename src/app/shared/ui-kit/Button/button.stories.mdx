@@ -1,4 +1,4 @@
-import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, ArgsTable, Canvas } from '@storybook/addon-docs/blocks';
 
 import { Margin } from 'app/shared/storybook-helpers';
 import Button from './index';
@@ -13,7 +13,7 @@ import Button from './index';
 
 ### Types
 
-<Preview withToolbar>
+<Canvas withToolbar>
   <Story name="types">
     <div style={{ fontSize: '16px' }}>
       <Button style={{ marginRight: '1em' }}>Default</Button>
@@ -28,11 +28,11 @@ import Button from './index';
       </Button>
     </div>
   </Story>
-</Preview>
+</Canvas>
 
 ### Sizes
 
-<Preview withToolbar>
+<Canvas withToolbar>
   <Story name="sizes">
     <div style={{ fontSize: '16px' }}>
       <Margin type="bottom">
@@ -46,11 +46,11 @@ import Button from './index';
       </Margin>
     </div>
   </Story>
-</Preview>
+</Canvas>
 
 ### Colors
 
-<Preview withToolbar>
+<Canvas withToolbar>
   <Story name="colors">
     <div style={{ fontSize: '16px' }}>
       <Margin type="bottom">
@@ -77,7 +77,7 @@ import Button from './index';
       </div>
     </div>
   </Story>
-</Preview>
+</Canvas>
 
 ## "As" Prop
 
@@ -95,4 +95,4 @@ You can specify what element to use.
 
 Button also accepts all dom props depending on html tag (button, a, etc) it uses.
 
-<Props of={Button} />
+<ArgsTable of={Button} />

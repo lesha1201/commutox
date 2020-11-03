@@ -1,4 +1,4 @@
-import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, ArgsTable, Canvas } from '@storybook/addon-docs/blocks';
 import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
 
 import Link from './index';
@@ -13,17 +13,17 @@ import Link from './index';
 
 ### Default
 
-<Preview withToolbar>
+<Canvas withToolbar>
   <Story name="default">
     <Link href="#" style={{ fontSize: '16px' }}>
       Link
     </Link>
   </Story>
-</Preview>
+</Canvas>
 
 ## "as" prop
 
-<Preview withToolbar>
+<Canvas withToolbar>
   <Story name="as-prop">
     <BrowserRouter>
       <Link as={RouterLink} to="#" style={{ fontSize: '16px' }}>
@@ -31,8 +31,8 @@ import Link from './index';
       </Link>
     </BrowserRouter>
   </Story>
-</Preview>
+</Canvas>
 
 ## Props
 
-<Props of={Link} />
+<ArgsTable of={Link} />

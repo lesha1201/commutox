@@ -1,4 +1,4 @@
-import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, ArgsTable, Canvas } from '@storybook/addon-docs/blocks';
 
 import Avatar from './index';
 
@@ -10,7 +10,7 @@ import Avatar from './index';
 
 ### Default
 
-<Preview withToolbar>
+<Canvas withToolbar>
   <Story name="default">
     <div
       style={{
@@ -28,11 +28,11 @@ import Avatar from './index';
       </div>
     </div>
   </Story>
-</Preview>
+</Canvas>
 
 ### With status
 
-<Preview withToolbar>
+<Canvas withToolbar>
   <Story name="with status">
     <div
       style={{
@@ -66,8 +66,8 @@ import Avatar from './index';
       </div>
     </div>
   </Story>
-</Preview>
+</Canvas>
 
 ## Props
 
-<Props of={Avatar} />
+<ArgsTable of={Avatar} />

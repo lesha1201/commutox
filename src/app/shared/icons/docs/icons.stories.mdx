@@ -1,4 +1,4 @@
-import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, ArgsTable, Canvas } from '@storybook/addon-docs/blocks';
 
 import { IconsList } from './IconsStory';
 import Icon from '../index';
@@ -12,15 +12,15 @@ import style from './style.scss';
 
 ### List of icons
 
-<Preview withToolbar>
+<Canvas withToolbar>
   <Story name="list of icons">
     <IconsList />
   </Story>
-</Preview>
+</Canvas>
 
 ### Sizes
 
-<Preview withToolbar>
+<Canvas withToolbar>
   <Story name="sizes">
     <div className={style.iconSizes}>
       <Icon name="search" size="xs" />
@@ -30,8 +30,8 @@ import style from './style.scss';
       <Icon name="search" size="xl" />
     </div>
   </Story>
-</Preview>
+</Canvas>
 
 ## Props
 
-<Props of={Icon} />
+<ArgsTable of={Icon} />

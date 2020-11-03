@@ -1,4 +1,4 @@
-import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, ArgsTable, Canvas } from '@storybook/addon-docs/blocks';
 
 import { Margin } from 'app/shared/storybook-helpers';
 import { Input } from 'app/shared/ui-kit';
@@ -14,7 +14,7 @@ import Label from './index';
 
 ### Default
 
-<Preview withToolbar>
+<Canvas withToolbar>
   <Story name="default">
     <div style={{ fontSize: '14px' }}>
       <Label htmlFor="first-name" style={{ marginBottom: '6px' }}>
@@ -23,8 +23,8 @@ import Label from './index';
       <Input id="first-name" placeholder="First name" width="full" />
     </div>
   </Story>
-</Preview>
+</Canvas>
 
 ## Props
 
-<Props of={Label} />
+<ArgsTable of={Label} />
