@@ -9,14 +9,6 @@ module.exports = {
     es6: true,
     node: true,
   },
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
-    ecmaVersion: 2018,
-    sourceType: 'module',
-  },
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
@@ -69,12 +61,25 @@ module.exports = {
     // Typescript
     {
       files: ['*.{ts,tsx}'],
+      parser: '@typescript-eslint/parser',
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+        ecmaVersion: 2018,
+        sourceType: 'module',
+      },
+      plugins: ['@typescript-eslint'],
       extends: [
         'plugin:@typescript-eslint/recommended',
         'plugin:import/typescript',
         'prettier/@typescript-eslint',
       ],
       rules: {
+        'default-case': 'off',
+        'no-dupe-class-members': 'off',
+        'no-undef': 'off',
+        'no-use-before-define': 'off',
         '@typescript-eslint/no-use-before-define': [
           'error',
           { functions: false, classes: false },

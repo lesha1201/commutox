@@ -10,7 +10,7 @@ const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
   mode: 'development',
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'eval-cheap-module-source-map',
   entry: [
     'webpack-dev-server/client?http://0.0.0.0:3013',
     'webpack/hot/only-dev-server',

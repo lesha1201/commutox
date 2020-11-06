@@ -8,8 +8,8 @@ module.exports = {
   entry: path.join(paths.SRC, 'main.tsx'),
   output: {
     path: paths.DIST,
-    filename: '[name].bundle.js',
-    chunkFilename: '[chunkhash].js',
+    filename: '[name].[contenthash:8].js',
+    chunkFilename: '[name].[contenthash:8].js',
     publicPath: '/',
   },
   resolve: {
@@ -33,20 +33,6 @@ module.exports = {
     ],
   },
   optimization: {
-    splitChunks: {
-      name: true,
-      cacheGroups: {
-        commons: {
-          chunks: 'initial',
-          minChunks: 2,
-        },
-        vendors: {
-          test: /[/\\]node_modules[/\\]/,
-          chunks: 'all',
-          priority: -10,
-        },
-      },
-    },
     runtimeChunk: true,
   },
   plugins: [

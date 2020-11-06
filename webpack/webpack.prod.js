@@ -12,7 +12,7 @@ const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
   mode: 'production',
-  devtool: 'hidden-source-map',
+  devtool: false,
   module: {
     rules: [
       {
@@ -58,7 +58,7 @@ module.exports = merge(common, {
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: '[contenthash].css',
+      filename: '[name].[contenthash:8].css',
     }),
     new BundleAnalyzerPlugin(),
   ],
