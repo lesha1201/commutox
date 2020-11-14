@@ -23,7 +23,12 @@ module.exports = {
       {
         test: /\.(j|t)sx?$/,
         include: path.resolve(paths.SRC),
-        use: [{ loader: 'babel-loader', options: { cacheDirectory: false } }],
+        use: [
+          {
+            loader: 'babel-loader',
+            options: { cacheDirectory: false },
+          },
+        ],
       },
       {
         test: /\.(png|svg|jpg|gif)$/,

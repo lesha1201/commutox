@@ -2,7 +2,7 @@
 process.env.BABEL_ENV = 'development';
 process.env.NODE_ENV = 'development';
 
-const webpack = require('webpack');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const { merge } = require('webpack-merge');
 const path = require('path');
 const paths = require('./paths');
@@ -11,26 +11,15 @@ const common = require('./webpack.common.js');
 module.exports = merge(common, {
   mode: 'development',
   devtool: 'eval-cheap-module-source-map',
-  entry: [
-    'webpack-dev-server/client?http://0.0.0.0:3013',
-    'webpack/hot/only-dev-server',
-    common.entry,
-  ],
   devServer: {
     contentBase: paths.SRC,
     hot: true,
     stats: 'minimal',
-    host: '0.0.0.0',
     port: 3013,
     historyApiFallback: {
       disableDotRule: true,
     },
     overlay: true,
-  },
-  resolve: {
-    alias: {
-      'react-dom': '@hot-loader/react-dom',
-    },
   },
   module: {
     rules: [
@@ -71,5 +60,5 @@ module.exports = merge(common, {
       },
     ],
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()],
+  plugins: [new ReactRefreshWebpackPlugin()],
 });
